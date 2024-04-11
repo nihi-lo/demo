@@ -1,0 +1,40 @@
+import { Input, Button } from "@nextui-org/react";
+
+import { Container, VStack, Section, HStack } from "@packages/cosmos-ui";
+
+import { useRootPage } from "./RootPage.hooks";
+
+const RootPage = (): JSX.Element => {
+  const { inputName, resultText, handleGreetClick, handleInputChange } = useRootPage();
+
+  return (
+    <VStack as="main">
+      <Container>
+        <VStack gap="md">
+          <Section headingAs="h1" title="Welcome Wails App.">
+            <VStack align="start" justify="center" gap="sm">
+              <div>Please enter your name below 👇</div>
+              <HStack align="center" justify="center" gap="sm">
+                <Input
+                  label="Name"
+                  defaultValue={inputName}
+                  onChange={(e) => handleInputChange(e.target.value)}
+                />
+                <Button color="primary" onClick={handleGreetClick}>
+                  Greet
+                </Button>
+              </HStack>
+              {resultText && <div>{resultText}</div>}
+            </VStack>
+          </Section>
+          <Section headingAs="h1" title="Dummy">
+            <div className="h-screen"></div>
+          </Section>
+        </VStack>
+      </Container>
+    </VStack>
+  );
+};
+RootPage.displayName = "RootPage";
+
+export { RootPage };
