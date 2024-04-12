@@ -4,7 +4,7 @@ tasks:
   # Wailsアプリ の初期設定を行います
   init:
     cmds:
-      - cd frontend && npm ci
+      - cd frontend && npm install
       - cd frontend && npm run format
     silent: true
 
