@@ -1,19 +1,19 @@
 import { act, cleanup, renderHook } from "@testing-library/react";
 
-import { useRootPage } from "./RootPage.hooks";
+import { useApp } from "./App.hooks";
 
-describe("Testing useRootPage", () => {
+describe("Testing useApp", () => {
   beforeEach(() => {
     cleanup();
   });
 
   test("inputNameの初期値が空文字列であること", () => {
-    const { result } = renderHook(() => useRootPage());
+    const { result } = renderHook(() => useApp());
     expect(result.current.inputName).toBe("");
   });
 
   test("resultTextの初期値がundefinedであること", () => {
-    const { result } = renderHook(() => useRootPage());
+    const { result } = renderHook(() => useApp());
     expect(result.current.resultText).toBe(undefined);
   });
 
@@ -22,7 +22,7 @@ describe("Testing useRootPage", () => {
       Greet: vitest.fn().mockResolvedValue("foo"),
     }));
 
-    const { result } = renderHook(() => useRootPage());
+    const { result } = renderHook(() => useApp());
     await act(async () => {
       result.current.handleGreetClick();
       await Promise.resolve(); /* 非同期処理の完了を待つ */
@@ -31,7 +31,7 @@ describe("Testing useRootPage", () => {
   });
 
   test("handleInputChangeを実行すると引数で渡した文字列がinputNameにセットされること", () => {
-    const { result } = renderHook(() => useRootPage());
+    const { result } = renderHook(() => useApp());
     act(() => result.current.handleInputChange("foo"));
     expect(result.current.inputName).toBe("foo");
   });

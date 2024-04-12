@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
+import { App as AboutApp } from "@packages/about-app";
+import { App as HomeApp } from "@packages/home-app";
+import { App as NotFoundApp } from "@packages/notfound-app";
 import { useWindow } from "@packages/portal-hooks";
 import { HStack, VStack } from "@packages/portal-ui";
 
 import { SiteBody } from "@/components/model/site/SiteBody";
 import { SiteHeader } from "@/components/model/site/SiteHeader";
 import { SiteSideBar } from "@/components/model/site/SiteSideBar";
-import { AboutPage } from "@/components/page/AboutPage";
-import { NotFoundPage } from "@/components/page/NotFoundPage";
-import { RootPage } from "@/components/page/RootPage";
 
 const variants = tv({
   slots: {
@@ -39,9 +39,9 @@ const App = (): JSX.Element => {
         </HStack>
         <SiteBody>
           <Routes>
-            <Route path="/" element={<RootPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path="/" element={<HomeApp />} />
+            <Route path="/about" element={<AboutApp />} />
+            <Route path="*" element={<NotFoundApp />} />
           </Routes>
         </SiteBody>
       </HStack>

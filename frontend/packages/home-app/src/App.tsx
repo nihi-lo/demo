@@ -2,10 +2,10 @@ import { Input, Button } from "@nextui-org/react";
 
 import { Container, VStack, Section, HStack } from "@packages/portal-ui";
 
-import { useRootPage } from "./RootPage.hooks";
+import { useApp } from "./App.hooks";
 
-const RootPage = (): JSX.Element => {
-  const { inputName, resultText, handleGreetClick, handleInputChange } = useRootPage();
+const App = (): JSX.Element => {
+  const { inputName, resultText, handleGreetClick, handleInputChange } = useApp();
 
   return (
     <VStack as="main">
@@ -35,6 +35,5 @@ const RootPage = (): JSX.Element => {
     </VStack>
   );
 };
-RootPage.displayName = "RootPage";
 
-export { RootPage };
+export { App };

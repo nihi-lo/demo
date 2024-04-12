@@ -3,7 +3,7 @@ import { TbAlertTriangleFilled } from "react-icons/tb";
 
 import { HStack, VStack } from "@packages/portal-ui";
 
-const NotFoundPage = (): JSX.Element => {
+const App = (): JSX.Element => {
   return (
     <VStack as="main" align="center" justify="center" gap="md" className="h-full">
       <HStack align="center" gap="sm">
@@ -16,6 +16,5 @@ const NotFoundPage = (): JSX.Element => {
     </VStack>
   );
 };
-NotFoundPage.displayName = "NotFoundPage";
 
-export { NotFoundPage };
+export { App };
