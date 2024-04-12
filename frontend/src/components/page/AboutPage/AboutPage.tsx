@@ -1,4 +1,4 @@
-import { VStack, Section } from "@packages/cosmos-ui";
+import { VStack, Section } from "@packages/portal-ui";
 
 const AboutPage = (): JSX.Element => {
   return (

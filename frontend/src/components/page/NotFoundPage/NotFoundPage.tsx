@@ -1,7 +1,7 @@
 import { Link } from "@nextui-org/react";
 import { TbAlertTriangleFilled } from "react-icons/tb";
 
-import { HStack, VStack } from "@packages/cosmos-ui";
+import { HStack, VStack } from "@packages/portal-ui";
 
 const NotFoundPage = (): JSX.Element => {
   return (

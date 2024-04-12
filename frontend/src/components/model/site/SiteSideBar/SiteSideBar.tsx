@@ -13,7 +13,7 @@ import {
   TbPig,
 } from "react-icons/tb";
 
-import { VStack, HStack } from "@packages/cosmos-ui";
+import { VStack, HStack } from "@packages/portal-ui";
 
 import { ThemeToggleButton } from "@/components/model/theme/ThemeToggleButton";
 

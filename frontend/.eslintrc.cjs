@@ -83,7 +83,7 @@ const config = {
       "error",
       [
         {
-          module: "packages/cosmos-ui/**",
+          module: "packages/portal-ui/**",
           allowReferenceFrom: ["src"],
           allowSameModule: true,
         },
@@ -99,7 +99,7 @@ const config = {
         },
         {
           module: "wailsjs/**",
-          allowReferenceFrom: ["**.hooks.ts", "**/hooks", "packages/cosmos-hooks"],
+          allowReferenceFrom: ["**.hooks.ts", "**/hooks", "packages/portal-hooks"],
           allowSameModule: true,
         },
       ],

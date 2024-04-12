@@ -1,5 +1,5 @@
-import { useWindow } from "@packages/cosmos-hooks";
-import { HStack } from "@packages/cosmos-ui";
+import { useWindow } from "@packages/portal-hooks";
+import { HStack } from "@packages/portal-ui";
 
 import {
   type SiteHeaderVariantProps as VariantProps,
@@ -24,7 +24,11 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
       style={{ widows: 1 }}
       {...props}
     >
-      <HStack align="center" className="h-9 w-full cursor-default select-none"></HStack>
+      <HStack
+        align="center"
+        justify="between"
+        className="h-9 w-full cursor-default select-none"
+      ></HStack>
     </header>
   );
 };

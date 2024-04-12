@@ -1,6 +1,6 @@
 import { Input, Button } from "@nextui-org/react";
 
-import { Container, VStack, Section, HStack } from "@packages/cosmos-ui";
+import { Container, VStack, Section, HStack } from "@packages/portal-ui";
 
 import { useRootPage } from "./RootPage.hooks";
 
