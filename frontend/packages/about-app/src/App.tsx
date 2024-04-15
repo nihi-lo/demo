@@ -1,4 +1,14 @@
-import { VStack, Section } from "@packages/portal-ui";
+import { TbMeat } from "react-icons/tb";
+
+import { VStack, Section, HStack } from "@packages/portal-ui";
+
+const AppIcon = (): JSX.Element => {
+  return (
+    <HStack align="center" justify="center" className="size-12 bg-[#e17b34]">
+      <TbMeat className="size-8 text-black" />
+    </HStack>
+  );
+};
 
 const App = (): JSX.Element => {
   return (
@@ -8,4 +18,4 @@ const App = (): JSX.Element => {
   );
 };
 
-export { App };
+export { AppIcon, App };

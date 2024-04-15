@@ -1,104 +1,81 @@
-import { Divider, Link, Tooltip } from "@nextui-org/react";
-import { type IconType } from "react-icons";
 import {
-  TbCheese,
-  TbChessKnightFilled,
-  TbChristmasTree,
-  TbClover,
-  TbGhost2,
-  TbGlassFullFilled,
-  TbHome,
-  TbKayak,
-  TbLayoutGrid,
-  TbPig,
-} from "react-icons/tb";
+  DndContext,
+  closestCenter,
+  DragOverlay,
+  type DragEndEvent,
+  type DragStartEvent,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { Divider } from "@nextui-org/react";
+import { useState } from "react";
 
-import { VStack, HStack } from "@packages/portal-ui";
+import { type SubAppID } from "@packages/portal-core";
+import { VStack } from "@packages/portal-ui";
 
+import { useFavoriteAppStore } from "@/stores/useFavoriteAppStore";
+
+import { SubAppOverlaySelectMenuItem } from "@/components/model/subapp/SubAppOverlaySelectMenuItem";
+import { SubAppSortableSelectMenuItem } from "@/components/model/subapp/SubAppSortableSelectMenuItem";
 import { ThemeToggleButton } from "@/components/model/theme/ThemeToggleButton";
 
 const SiteSideBar = (): JSX.Element => {
-  // prettier-ignore
-  const medadatas: {
-    key: string;
-    tipMsg: string,
-    Icon: IconType,
-    className: string
-  }[] = [
-    { key: "cheese",            tipMsg: "Cheese",            Icon: TbCheese,            className: "size-12 bg-yellow-500" },
-    { key: "ghost",             tipMsg: "Ghost",             Icon: TbGhost2,            className: "size-12 bg-violet-400" },
-    { key: "chessKnightFilled", tipMsg: "ChessKnightFilled", Icon: TbChessKnightFilled, className: "size-12 bg-cyan-400" },
-    { key: "christmasTree",     tipMsg: "ChristmasTree",     Icon: TbChristmasTree,     className: "size-12 bg-green-400" },
-    { key: "clover",            tipMsg: "Clover",            Icon: TbClover,            className: "size-12 bg-gradient-to-br from-blue-500 via-green-500 to-yellow-200" },
-    { key: "glassFullFilled",   tipMsg: "GlassFullFilled",   Icon: TbGlassFullFilled,   className: "size-12 bg-red-400" },
-    { key: "kayak",             tipMsg: "Kayak",             Icon: TbKayak,             className: "size-12 bg-blue-400" },
-    { key: "pig",               tipMsg: "Pig",               Icon: TbPig,               className: "size-12 bg-pink-400" },
-  ];
+  const { favoriteApps, setFavoriteApps } = useFavoriteAppStore();
+
+  const [activeID, setActiveID] = useState<SubAppID | null>(null);
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 0 } }));
+
+  /* Event handlers */
+  const handleDragStart = (event: DragStartEvent) => {
+    const { active } = event;
+    setActiveID(active.id as SubAppID);
+  };
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (over !== null && active.id !== over.id) {
+      const newArray = arrayMove(
+        favoriteApps,
+        favoriteApps.indexOf(active.id as SubAppID),
+        favoriteApps.indexOf(over.id as SubAppID),
+      );
+      setFavoriteApps(newArray);
+    }
+    setActiveID(null);
+  };
 
   return (
     <VStack as="aside" align="center" justify="between" className="h-full w-20">
+      {/* アプリ選択エリア */}
       <VStack align="center" py="sm" gap="sm">
-        <Tooltip
-          placement="right"
-          content="ホーム"
-          closeDelay={0}
-          classNames={{ base: "pointer-events-none select-none" }}
-        >
-          <Link
-            href="/"
-            className="size-12 overflow-hidden rounded-3xl transition-all hover:rounded-large"
-          >
-            <HStack align="center" justify="center" className="size-12 select-none bg-content2">
-              <TbHome className="size-9 text-content2-foreground" />
-            </HStack>
-          </Link>
-        </Tooltip>
+        {/* ホームアプリ */}
+        <SubAppSortableSelectMenuItem subAppID={1} />
         <Divider className="w-4/5" />
 
-        {medadatas.map((medadata) => (
-          <HStack
-            key={medadata.key}
-            align="center"
-            justify="between"
-            className="relative w-20 flex-row-reverse"
-          >
-            <div className="h-2 w-1 bg-transparent" />
-            <Tooltip
-              placement="right"
-              content={medadata.tipMsg}
-              closeDelay={0}
-              classNames={{ base: "pointer-events-none select-none" }}
-            >
-              <Link
-                href={`/${medadata.key}`}
-                className="peer size-12 overflow-hidden rounded-3xl transition-all hover:rounded-large"
-              >
-                <HStack align="center" justify="center" className={medadata.className}>
-                  <medadata.Icon className="size-8 text-black" />
-                </HStack>
-              </Link>
-            </Tooltip>
-            <div className="h-2 w-1 rounded-e-full bg-divider transition-all peer-hover:h-4 peer-hover:bg-content2-foreground" />
-          </HStack>
-        ))}
-        <Divider className="w-4/5" />
-
-        <Tooltip
-          placement="right"
-          content="その他のアプリ"
-          closeDelay={0}
-          classNames={{ base: "pointer-events-none select-none" }}
+        {/* お気に入りアプリ */}
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
         >
-          <Link
-            href="/about"
-            className="size-12 overflow-hidden rounded-3xl transition-all hover:rounded-large"
-          >
-            <HStack align="center" justify="center" className="size-12 bg-content2">
-              <TbLayoutGrid className="size-9 text-content2-foreground" />
-            </HStack>
-          </Link>
-        </Tooltip>
+          <SortableContext items={favoriteApps} strategy={verticalListSortingStrategy}>
+            {favoriteApps.map((id) => (
+              <SubAppSortableSelectMenuItem key={id} subAppID={id} />
+            ))}
+          </SortableContext>
+          <DragOverlay>
+            {activeID && <SubAppOverlaySelectMenuItem subAppID={activeID} />}
+          </DragOverlay>
+        </DndContext>
+
+        {/* その他のアプリ */}
+        <Divider className="w-4/5" />
+        <SubAppSortableSelectMenuItem subAppID={2} />
       </VStack>
+
+      {/* 設定アプリエリア */}
       <VStack align="center" py="sm" gap="sm">
         <ThemeToggleButton />
       </VStack>

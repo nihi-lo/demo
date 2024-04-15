@@ -1,8 +1,17 @@
 import { Input, Button } from "@nextui-org/react";
+import { TbHome } from "react-icons/tb";
 
 import { Container, VStack, Section, HStack } from "@packages/portal-ui";
 
 import { useApp } from "./App.hooks";
+
+const AppIcon = (): JSX.Element => {
+  return (
+    <HStack align="center" justify="center" className="size-12 bg-content2">
+      <TbHome className="size-8 text-content2-foreground" />
+    </HStack>
+  );
+};
 
 const App = (): JSX.Element => {
   const { inputName, resultText, handleGreetClick, handleInputChange } = useApp();
@@ -36,4 +45,4 @@ const App = (): JSX.Element => {
   );
 };
 
-export { App };
+export { AppIcon, App };
