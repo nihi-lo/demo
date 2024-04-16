@@ -1,6 +1,6 @@
 import { Divider } from "@nextui-org/react";
 
-import { Heading, HStack } from "@packages/portal-ui";
+import { Heading, HStack } from "@portal-ui";
 
 import { type SectionVariantProps as VariantProps, sectionVariants as variants } from "./variants";
 

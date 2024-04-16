@@ -1,7 +1,7 @@
 import { Link } from "@nextui-org/react";
 import { TbAlertTriangleFilled } from "react-icons/tb";
 
-import { HStack, VStack } from "@packages/portal-ui";
+import { HStack, VStack } from "@portal-ui";
 
 const AppIcon = (): JSX.Element => {
   return (

@@ -12,8 +12,8 @@ import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-ki
 import { Divider } from "@nextui-org/react";
 import { useState } from "react";
 
-import { type SubAppID } from "@packages/portal-core";
-import { VStack } from "@packages/portal-ui";
+import { type SubAppID } from "@portal-core";
+import { VStack } from "@portal-ui";
 
 import { SubAppOverlaySelectMenuItem } from "@portal-app/components/model/subapp/SubAppOverlaySelectMenuItem";
 import { SubAppSortableSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSortableSelectMenuItem";

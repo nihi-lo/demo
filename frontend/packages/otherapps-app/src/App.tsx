@@ -1,6 +1,6 @@
 import { TbLayoutGrid } from "react-icons/tb";
 
-import { VStack, Section, Container, HStack } from "@packages/portal-ui";
+import { VStack, Section, Container, HStack } from "@portal-ui";
 
 const AppIcon = (): JSX.Element => {
   return (

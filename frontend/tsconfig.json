@@ -24,7 +24,13 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
+      // サブアプリパッケージ
       "@packages/*": ["./packages/*/src/index"],
+
+      // 基本パッケージ
+      "@portal-core": ["./packages/portal-core/src/index"],
+      "@portal-hooks": ["./packages/portal-hooks/src/index"],
+      "@portal-ui": ["./packages/portal-ui/src/index"],
       "@portal-app/*": ["./src/*"],
       "@wailsjs/*": ["./wailsjs/*"]
     }

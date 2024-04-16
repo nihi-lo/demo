@@ -47,6 +47,11 @@ const config = {
             position: "before",
           },
           {
+            pattern: "@portal-*",
+            group: "internal",
+            position: "before",
+          },
+          {
             pattern: "@packages/**",
             group: "internal",
             position: "before",
@@ -72,11 +77,11 @@ const config = {
     "strict-dependencies/strict-dependencies": [
       "error",
       [
-        {
-          module: "packages/portal-ui/**",
-          allowReferenceFrom: ["src"],
-          allowSameModule: true,
-        },
+        // {
+        //   module: "packages/portal-ui/**",
+        //   allowReferenceFrom: ["packages, src"],
+        //   allowSameModule: true,
+        // },
         {
           module: "src/components/model/**",
           allowReferenceFrom: ["src/App.tsx", "src/components/page"],

@@ -2,10 +2,11 @@ import { useEffect } from "react";
 import { Routes, Route, useMatch } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
+import { useWindow } from "@portal-hooks";
+import { HStack, VStack } from "@portal-ui";
+
 import { App as HomeApp } from "@packages/home-app";
 import { App as NotFoundApp } from "@packages/notfound-app";
-import { useWindow } from "@packages/portal-hooks";
-import { HStack, VStack } from "@packages/portal-ui";
 
 import { SiteBody } from "@portal-app/components/model/site/SiteBody";
 import { SiteHeader } from "@portal-app/components/model/site/SiteHeader";

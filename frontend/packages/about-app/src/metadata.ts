@@ -1,4 +1,4 @@
-import { type Metadata } from "@packages/portal-core";
+import { type Metadata } from "@portal-core";
 
 import { AppIcon } from "./App";
 

@@ -1,5 +1,5 @@
-import { useWindow } from "@packages/portal-hooks";
-import { HStack } from "@packages/portal-ui";
+import { useWindow } from "@portal-hooks";
+import { HStack } from "@portal-ui";
 
 import {
   type SiteHeaderVariantProps as VariantProps,
