@@ -28,25 +28,25 @@ const variants = tv({
 });
 
 const App = (): JSX.Element => {
+  /* Global Stores */
   const { setActiveApp } = useActiveAppStore();
 
   /* React hooks */
   const { isMaximised } = useWindow();
   const match = useMatch("/:path");
 
+  useEffect(() => {
+    // これから起動するアプリを ActiveApp に設定する
+    if (match !== null) {
+      const { path } = match.params;
+      if (path !== undefined) {
+        setActiveApp(path);
+      }
+    }
+  });
+
   /* ClassName variants */
   const { base } = variants();
-
-  useEffect(() => {
-    if (match === null) {
-      return;
-    }
-    const { path } = match.params;
-    if (path === undefined) {
-      return;
-    }
-    setActiveApp(path);
-  });
 
   return (
     <VStack className={base({ windowIsMaximised: isMaximised })}>
