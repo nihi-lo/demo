@@ -42,7 +42,7 @@ const SubAppSortableSelectMenuItem = ({
     >
       <SubAppSelectMenuItem
         appIconContent={
-          <Link href={`/${app.metadata.key}`} className="hover:opacity-100">
+          <Link href={`/${subAppID}`} className="hover:opacity-100">
             <div ref={setActivatorNodeRef} {...attributes} {...listeners}>
               {isDragging ? <div className="size-12 bg-divider" /> : <app.metadata.AppIcon />}
             </div>

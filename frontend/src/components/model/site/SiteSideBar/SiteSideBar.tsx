@@ -15,6 +15,7 @@ import { useState } from "react";
 import { type SubAppID } from "@packages/portal-core";
 import { VStack } from "@packages/portal-ui";
 
+import { useActiveAppStore } from "@/stores/useActiveAppStore";
 import { useFavoriteAppStore } from "@/stores/useFavoriteAppStore";
 
 import { SubAppOverlaySelectMenuItem } from "@/components/model/subapp/SubAppOverlaySelectMenuItem";
@@ -22,7 +23,9 @@ import { SubAppSortableSelectMenuItem } from "@/components/model/subapp/SubAppSo
 import { ThemeToggleButton } from "@/components/model/theme/ThemeToggleButton";
 
 const SiteSideBar = (): JSX.Element => {
-  const { favoriteApps, setFavoriteApps } = useFavoriteAppStore();
+  const activeApp = useActiveAppStore((state) => state.activeApp);
+  const favoriteApps = useFavoriteAppStore((state) => state.favoriteApps);
+  const setFavoriteApps = useFavoriteAppStore((state) => state.setFavoriteApps);
 
   const [activeID, setActiveID] = useState<SubAppID | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 0 } }));
@@ -50,7 +53,7 @@ const SiteSideBar = (): JSX.Element => {
       {/* アプリ選択エリア */}
       <VStack align="center" py="sm" gap="sm">
         {/* ホームアプリ */}
-        <SubAppSortableSelectMenuItem subAppID={1} />
+        <SubAppSortableSelectMenuItem isSelected={activeApp === 1} subAppID={1} />
         <Divider className="w-4/5" />
 
         {/* お気に入りアプリ */}
@@ -62,7 +65,7 @@ const SiteSideBar = (): JSX.Element => {
         >
           <SortableContext items={favoriteApps} strategy={verticalListSortingStrategy}>
             {favoriteApps.map((id) => (
-              <SubAppSortableSelectMenuItem key={id} isSelected={true} subAppID={id} />
+              <SubAppSortableSelectMenuItem key={id} isSelected={activeApp === id} subAppID={id} />
             ))}
           </SortableContext>
           <DragOverlay>
@@ -72,7 +75,7 @@ const SiteSideBar = (): JSX.Element => {
 
         {/* その他のアプリ */}
         <Divider className="w-4/5" />
-        <SubAppSortableSelectMenuItem subAppID={2} />
+        <SubAppSortableSelectMenuItem isSelected={activeApp === 2} subAppID={2} />
       </VStack>
 
       {/* 設定アプリエリア */}

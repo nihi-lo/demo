@@ -18,7 +18,7 @@ const App = (): JSX.Element => {
         <TbAlertTriangleFilled className="size-12 text-warning" />
         <p className="text-2xl">不明なアプリ</p>
       </HStack>
-      <Link href="/home" underline="always">
+      <Link href={`/${1}`} underline="always">
         ホームへ戻る
       </Link>
     </VStack>

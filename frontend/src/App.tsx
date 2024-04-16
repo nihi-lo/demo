@@ -1,10 +1,13 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useMatch } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
 import { App as HomeApp } from "@packages/home-app";
 import { App as NotFoundApp } from "@packages/notfound-app";
 import { useWindow } from "@packages/portal-hooks";
 import { HStack, VStack } from "@packages/portal-ui";
+
+import { useActiveAppStore } from "@/stores/useActiveAppStore";
 
 import { SiteBody } from "@/components/model/site/SiteBody";
 import { SiteHeader } from "@/components/model/site/SiteHeader";
@@ -25,11 +28,25 @@ const variants = tv({
 });
 
 const App = (): JSX.Element => {
+  const { setActiveApp } = useActiveAppStore();
+
   /* React hooks */
   const { isMaximised } = useWindow();
+  const match = useMatch("/:path");
 
   /* ClassName variants */
   const { base } = variants();
+
+  useEffect(() => {
+    if (match === null) {
+      return;
+    }
+    const { path } = match.params;
+    if (path === undefined) {
+      return;
+    }
+    setActiveApp(path);
+  });
 
   return (
     <VStack className={base({ windowIsMaximised: isMaximised })}>
@@ -43,13 +60,9 @@ const App = (): JSX.Element => {
             <Route path="/" element={<HomeApp />} />
             {(() => {
               const elements: JSX.Element[] = [];
-              subApps.forEach((app) => {
+              subApps.forEach((app, key) => {
                 elements.push(
-                  <Route
-                    key={app.metadata.key}
-                    path={`/${app.metadata.key}`}
-                    element={<app.Page />}
-                  />,
+                  <Route key={app.metadata.key} path={`/${key}`} element={<app.Page />} />,
                 );
               });
               return elements;
