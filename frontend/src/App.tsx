@@ -7,13 +7,11 @@ import { App as NotFoundApp } from "@packages/notfound-app";
 import { useWindow } from "@packages/portal-hooks";
 import { HStack, VStack } from "@packages/portal-ui";
 
-import { useActiveAppStore } from "@/stores/useActiveAppStore";
-
-import { SiteBody } from "@/components/model/site/SiteBody";
-import { SiteHeader } from "@/components/model/site/SiteHeader";
-import { SiteSideBar } from "@/components/model/site/SiteSideBar";
-
-import { subApps } from "@/subApps";
+import { SiteBody } from "@portal-app/components/model/site/SiteBody";
+import { SiteHeader } from "@portal-app/components/model/site/SiteHeader";
+import { SiteSideBar } from "@portal-app/components/model/site/SiteSideBar";
+import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
+import { subApps } from "@portal-app/subApps";
 
 const variants = tv({
   slots: {

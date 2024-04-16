@@ -1,8 +1,7 @@
 import { type SubAppID } from "@packages/portal-core";
 
-import { SubAppSelectMenuItem } from "@/components/model/subapp/SubAppSelectMenuItem";
-
-import { subApps } from "@/subApps";
+import { SubAppSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSelectMenuItem";
+import { subApps } from "@portal-app/subApps";
 
 interface SubAppOverlaySelectMenuItemProps {
   subAppID: SubAppID;

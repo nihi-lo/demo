@@ -42,8 +42,8 @@ export { type {{ ComponentName }}Hooks, use{{ ComponentName }} };
 # `src/components/page/{{ ComponentName }}/{{ ComponentName }}.tsx`
 
 ```ts
-import { VStack } from "@/components/ui/layout";
-import { Heading } from "@/components/ui/typography";
+import { VStack } from "@portal-app/components/ui/layout";
+import { Heading } from "@portal-app/components/ui/typography";
 
 {{ inputs.hasHooks && "import { use" + ComponentName + ' } from "./' + ComponentName + '.hooks";' }}
 

@@ -15,12 +15,11 @@ import { useState } from "react";
 import { type SubAppID } from "@packages/portal-core";
 import { VStack } from "@packages/portal-ui";
 
-import { useActiveAppStore } from "@/stores/useActiveAppStore";
-import { useFavoriteAppStore } from "@/stores/useFavoriteAppStore";
-
-import { SubAppOverlaySelectMenuItem } from "@/components/model/subapp/SubAppOverlaySelectMenuItem";
-import { SubAppSortableSelectMenuItem } from "@/components/model/subapp/SubAppSortableSelectMenuItem";
-import { ThemeToggleButton } from "@/components/model/theme/ThemeToggleButton";
+import { SubAppOverlaySelectMenuItem } from "@portal-app/components/model/subapp/SubAppOverlaySelectMenuItem";
+import { SubAppSortableSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSortableSelectMenuItem";
+import { ThemeToggleButton } from "@portal-app/components/model/theme/ThemeToggleButton";
+import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
+import { useFavoriteAppStore } from "@portal-app/stores/useFavoriteAppStore";
 
 const SiteSideBar = (): JSX.Element => {
   const activeApp = useActiveAppStore((state) => state.activeApp);

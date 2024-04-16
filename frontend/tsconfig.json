@@ -25,7 +25,7 @@
     "baseUrl": ".",
     "paths": {
       "@packages/*": ["./packages/*/src/index"],
-      "@/*": ["./src/*"],
+      "@portal-app/*": ["./src/*"],
       "@wailsjs/*": ["./wailsjs/*"]
     }
   },
