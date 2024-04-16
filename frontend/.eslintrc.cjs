@@ -77,21 +77,6 @@ const config = {
     "strict-dependencies/strict-dependencies": [
       "error",
       [
-        // {
-        //   module: "packages/portal-ui/**",
-        //   allowReferenceFrom: ["packages, src"],
-        //   allowSameModule: true,
-        // },
-        {
-          module: "src/components/model/**",
-          allowReferenceFrom: ["src/App.tsx", "src/components/page"],
-          allowSameModule: true,
-        },
-        {
-          module: "src/components/page/**",
-          allowReferenceFrom: ["src/App.tsx"],
-          allowSameModule: false,
-        },
         {
           module: "wailsjs/**",
           allowReferenceFrom: ["**.hooks.ts", "**/hooks", "packages/portal-hooks"],
