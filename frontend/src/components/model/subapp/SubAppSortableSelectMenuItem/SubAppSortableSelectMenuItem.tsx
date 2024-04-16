@@ -9,10 +9,12 @@ import { SubAppSelectMenuItem } from "@/components/model/subapp/SubAppSelectMenu
 import { subApps } from "@/subApps";
 
 interface SubAppSortableSelectMenuItemProps {
+  isSelected?: boolean;
   subAppID: SubAppID;
 }
 
 const SubAppSortableSelectMenuItem = ({
+  isSelected = false,
   subAppID,
 }: SubAppSortableSelectMenuItemProps): JSX.Element => {
   const {
@@ -48,6 +50,7 @@ const SubAppSortableSelectMenuItem = ({
         }
         hideSelectionState={isDragging}
         hideTooltip={isDragging}
+        isSelected={isSelected}
         tooltipContent={app.metadata.title}
       />
     </div>

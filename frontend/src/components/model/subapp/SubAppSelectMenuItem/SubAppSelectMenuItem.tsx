@@ -16,14 +16,19 @@ interface SubAppSelectMenuItemProps extends VariantProps {
 const SubAppSelectMenuItem = (props: SubAppSelectMenuItemProps): JSX.Element => {
   const {
     appIconContent,
-    hideSelectionState = false,
     disableAnimation = false,
+    hideSelectionState = false,
     hideTooltip = false,
-    tooltipContent,
+    isSelected = false,
+    tooltipContent = undefined,
   } = props;
 
   /* ClassName variants */
-  const { iconWrapper, selectionState } = variants();
+  const { iconWrapper, selectionState } = variants({
+    disableAnimation,
+    hideSelectionState,
+    isSelected,
+  });
 
   return (
     <HStack align="center" justify="between" className="w-20 flex-row-reverse">
@@ -36,9 +41,9 @@ const SubAppSelectMenuItem = (props: SubAppSelectMenuItemProps): JSX.Element => 
         closeDelay={0}
         classNames={{ base: "pointer-events-none select-none" }}
       >
-        <div className={iconWrapper({ disableAnimation })}>{appIconContent}</div>
+        <div className={iconWrapper()}>{appIconContent}</div>
       </Tooltip>
-      <div className={selectionState({ disableAnimation, hideSelectionState })} />
+      <div className={selectionState()} />
     </HStack>
   );
 };
