@@ -62,7 +62,7 @@ const SiteSideBar = (): JSX.Element => {
         >
           <SortableContext items={favoriteApps} strategy={verticalListSortingStrategy}>
             {favoriteApps.map((id) => (
-              <SubAppSortableSelectMenuItem key={id} isSelected={false} subAppID={id} />
+              <SubAppSortableSelectMenuItem key={id} isSelected={true} subAppID={id} />
             ))}
           </SortableContext>
           <DragOverlay>

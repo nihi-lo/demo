@@ -4,7 +4,7 @@ const subAppSelectMenuItemVariants = tv({
   slots: {
     iconWrapper: "peer size-12 overflow-hidden rounded-3xl hover:rounded-large",
     selectionState:
-      "h-2 w-1 rounded-e-full bg-transparent peer-hover:h-4 peer-hover:bg-content2-foreground",
+      "h-2 w-1 rounded-e-full bg-divider peer-hover:h-4 peer-hover:bg-content2-foreground",
   },
   variants: {
     disableAnimation: {
@@ -17,23 +17,16 @@ const subAppSelectMenuItemVariants = tv({
         selectionState: "transition-all",
       },
     },
-    hideSelectionState: {
-      true: {
-        selectionState: "bg-transparent",
-      },
-      false: {
-        selectionState: "bg-divider",
-      },
-    },
     isSelected: {
       true: {
         iconWrapper: "rounded-large hover:rounded-large",
         selectionState:
           "h-8 bg-content2-foreground peer-hover:h-8 peer-hover:bg-content2-foreground",
       },
-      false: {
-        iconWrapper: "",
-        selectionState: "",
+    },
+    hideSelectionState: {
+      true: {
+        selectionState: "bg-transparent peer-hover:bg-transparent",
       },
     },
   },
