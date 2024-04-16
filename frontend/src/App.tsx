@@ -61,9 +61,7 @@ const App = (): JSX.Element => {
             {(() => {
               const elements: JSX.Element[] = [];
               subApps.forEach((app, key) => {
-                elements.push(
-                  <Route key={app.metadata.key} path={`/${key}`} element={<app.Page />} />,
-                );
+                elements.push(<Route key={key} path={`/${key}`} element={<app.Page />} />);
               });
               return elements;
             })()}
