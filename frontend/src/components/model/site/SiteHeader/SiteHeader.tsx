@@ -1,5 +1,6 @@
 import { useWindow } from "@portal-hooks";
-import { HStack } from "@portal-ui";
+
+import { HStack } from "@packages/portal-ui";
 
 import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
 import { APP_ID_NOTFOUND, subApps } from "@portal-app/subApps";
@@ -30,11 +31,24 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
       style={{ widows: 1 }}
       {...props}
     >
-      <HStack align="center" justify="center" className="h-9 w-full cursor-default select-none">
+      <div className="absolute left-0 top-0 size-max h-9 w-40">
+        {/* ヘッダー左端のコンテンツ */}
+      </div>
+      <HStack
+        align="center"
+        justify="center"
+        px="sm"
+        className="mx-40 h-9 cursor-default select-none"
+      >
         {app && (
-          <p className="text-small font-semibold text-content2-foreground">{app.metadata.title}</p>
+          <p className="truncate text-small font-semibold text-content2-foreground">
+            {app.metadata.title}
+          </p>
         )}
       </HStack>
+      <div className="absolute right-0 top-0 size-max h-9 w-40">
+        {/* ヘッダー右端のコンテンツ */}
+      </div>
     </header>
   );
 };

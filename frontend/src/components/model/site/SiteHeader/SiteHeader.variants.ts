@@ -2,7 +2,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 
 const siteHeaderVariants = tv({
   slots: {
-    base: "",
+    base: "relative",
   },
   variants: {
     isSticky: {
