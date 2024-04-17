@@ -20,6 +20,7 @@ import { SubAppSortableSelectMenuItem } from "@portal-app/components/model/subap
 import { ThemeToggleButton } from "@portal-app/components/model/theme/ThemeToggleButton";
 import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
 import { useFavoriteAppStore } from "@portal-app/stores/useFavoriteAppStore";
+import { APP_ID_HOME, APP_ID_OTHER } from "@portal-app/subApps";
 
 const SiteSideBar = (): JSX.Element => {
   const activeApp = useActiveAppStore((state) => state.activeApp);
@@ -52,7 +53,10 @@ const SiteSideBar = (): JSX.Element => {
       {/* アプリ選択エリア */}
       <VStack align="center" py="sm" gap="sm">
         {/* ホームアプリ */}
-        <SubAppSortableSelectMenuItem isSelected={activeApp === 1} subAppID={1} />
+        <SubAppSortableSelectMenuItem
+          isSelected={activeApp === APP_ID_HOME}
+          subAppID={APP_ID_HOME}
+        />
         <Divider className="w-4/5" />
 
         {/* お気に入りアプリ */}
@@ -74,7 +78,10 @@ const SiteSideBar = (): JSX.Element => {
 
         {/* その他のアプリ */}
         <Divider className="w-4/5" />
-        <SubAppSortableSelectMenuItem isSelected={activeApp === 2} subAppID={2} />
+        <SubAppSortableSelectMenuItem
+          isSelected={activeApp === APP_ID_OTHER}
+          subAppID={APP_ID_OTHER}
+        />
       </VStack>
 
       {/* 設定アプリエリア */}

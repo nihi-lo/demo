@@ -2,7 +2,7 @@ import { useWindow } from "@portal-hooks";
 import { HStack } from "@portal-ui";
 
 import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
-import { subApps } from "@portal-app/subApps";
+import { APP_ID_NOTFOUND, subApps } from "@portal-app/subApps";
 
 import {
   type SiteHeaderVariantProps as VariantProps,
@@ -21,7 +21,7 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
   /* ClassName variants */
   const { base } = variants({ isSticky, isGlass, className });
 
-  const app = subApps.get(activeApp) ?? subApps.get(0);
+  const app = subApps.get(activeApp) ?? subApps.get(APP_ID_NOTFOUND);
 
   return (
     <header

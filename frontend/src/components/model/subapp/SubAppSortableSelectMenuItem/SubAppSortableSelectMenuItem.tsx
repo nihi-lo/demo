@@ -5,7 +5,7 @@ import { Link } from "@nextui-org/react";
 import { type SubAppID } from "@portal-core";
 
 import { SubAppSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSelectMenuItem";
-import { subApps } from "@portal-app/subApps";
+import { APP_ID_NOTFOUND, subApps } from "@portal-app/subApps";
 
 interface SubAppSortableSelectMenuItemProps {
   isSelected?: boolean;
@@ -26,7 +26,7 @@ const SubAppSortableSelectMenuItem = ({
     transition,
   } = useSortable({ id: subAppID });
 
-  const app = subApps.get(subAppID) ?? subApps.get(0);
+  const app = subApps.get(subAppID) ?? subApps.get(APP_ID_NOTFOUND);
   if (app === undefined) {
     return <></>;
   }

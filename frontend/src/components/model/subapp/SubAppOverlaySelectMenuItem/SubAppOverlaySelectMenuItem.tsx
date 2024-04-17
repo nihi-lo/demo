@@ -1,7 +1,7 @@
 import { type SubAppID } from "@portal-core";
 
 import { SubAppSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSelectMenuItem";
-import { subApps } from "@portal-app/subApps";
+import { APP_ID_NOTFOUND, subApps } from "@portal-app/subApps";
 
 interface SubAppOverlaySelectMenuItemProps {
   subAppID: SubAppID;
@@ -10,7 +10,7 @@ interface SubAppOverlaySelectMenuItemProps {
 const SubAppOverlaySelectMenuItem = ({
   subAppID,
 }: SubAppOverlaySelectMenuItemProps): JSX.Element => {
-  const app = subApps.get(subAppID) ?? subApps.get(0);
+  const app = subApps.get(subAppID) ?? subApps.get(APP_ID_NOTFOUND);
   if (app === undefined) {
     return <></>;
   }

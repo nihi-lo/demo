@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useMatch } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
-import { useWindow } from "@portal-hooks";
+import { useOS, useWindow } from "@portal-hooks";
 import { HStack, VStack } from "@portal-ui";
 
 import { App as HomeApp } from "@packages/home-app";
@@ -19,19 +19,24 @@ const variants = tv({
     base: "relative h-screen bg-content2",
   },
   variants: {
-    windowIsMaximised: {
-      true: "border-none",
-      false: "border border-divider",
+    hideWindowBorder: {
+      true: {
+        base: "border-none",
+      },
+      false: {
+        base: "border border-divider",
+      },
     },
   },
 });
 
 const App = (): JSX.Element => {
   /* Global Stores */
-  const { setActiveApp } = useActiveAppStore();
+  const setActiveApp = useActiveAppStore((state) => state.setActiveApp);
 
   /* React hooks */
   const { isMaximised } = useWindow();
+  const { os } = useOS();
   const match = useMatch("/:path");
 
   useEffect(() => {
@@ -45,10 +50,12 @@ const App = (): JSX.Element => {
   });
 
   /* ClassName variants */
-  const { base } = variants();
+  const { base } = variants({
+    hideWindowBorder: os === "macos" || isMaximised,
+  });
 
   return (
-    <VStack className={base({ windowIsMaximised: isMaximised })}>
+    <VStack className={base()}>
       <SiteHeader />
       <HStack grow="1" className="overflow-hidden overscroll-y-auto">
         <HStack className="sticky top-0 z-10">
