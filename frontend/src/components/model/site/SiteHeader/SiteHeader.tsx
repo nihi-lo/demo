@@ -31,24 +31,19 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
       style={{ widows: 1 }}
       {...props}
     >
-      <div className="absolute left-0 top-0 size-max h-9 w-40">
+      <HStack align="center" justify="start" className="absolute left-0 top-0 h-9 w-40">
         {/* ヘッダー左端のコンテンツ */}
-      </div>
-      <HStack
-        align="center"
-        justify="center"
-        px="sm"
-        className="mx-40 h-9 cursor-default select-none"
-      >
+      </HStack>
+      <HStack align="center" justify="center" px="sm" className="mx-40 h-9">
         {app && (
           <p className="truncate text-small font-semibold text-content2-foreground">
             {app.metadata.title}
           </p>
         )}
       </HStack>
-      <div className="absolute right-0 top-0 size-max h-9 w-40">
+      <HStack align="center" justify="end" className="absolute right-0 top-0 h-9 w-40">
         {/* ヘッダー右端のコンテンツ */}
-      </div>
+      </HStack>
     </header>
   );
 };
