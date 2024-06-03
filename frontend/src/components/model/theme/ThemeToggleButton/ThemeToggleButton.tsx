@@ -8,7 +8,7 @@ import {
 } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { type Key, useEffect, useState } from "react";
-import { IoHelpOutline, IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import { TbHelpCircleFilled, TbMoon, TbSun } from "react-icons/tb";
 
 import {
   type ThemeToggleButtonVariantProps as VariantProps,
@@ -40,15 +40,15 @@ const ThemeToggleButton = ({ ...props }: ThemeToggleButtonProps): JSX.Element =>
   const ThemeIcon =
     theme === "system"
       ? systemTheme === "light"
-        ? IoSunnyOutline
+        ? TbSun
         : systemTheme === "dark"
-          ? IoMoonOutline
-          : IoHelpOutline
+          ? TbMoon
+          : TbHelpCircleFilled
       : theme === "light"
-        ? IoSunnyOutline
+        ? TbSun
         : theme === "dark"
-          ? IoMoonOutline
-          : IoHelpOutline;
+          ? TbMoon
+          : TbHelpCircleFilled;
 
   useEffect(() => {
     setMounted(true);
@@ -57,8 +57,8 @@ const ThemeToggleButton = ({ ...props }: ThemeToggleButtonProps): JSX.Element =>
   return (
     <Dropdown className={base()} {...props}>
       <DropdownTrigger>
-        <Button isIconOnly variant="ghost" isDisabled={!mounted}>
-          <ThemeIcon className="size-5" />
+        <Button isIconOnly size="lg" variant="light" isDisabled={!mounted}>
+          <ThemeIcon className="size-8" />
         </Button>
       </DropdownTrigger>
       <DropdownMenu

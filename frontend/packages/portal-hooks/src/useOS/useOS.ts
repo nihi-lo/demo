@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 
-import { GetOS } from "@wailsjs/go/main/App";
+import { GetOS } from "@wailsjs/go/portalcore/PortalCore";
 
 type OS = "undetermined" | "macos" | "windows";
 

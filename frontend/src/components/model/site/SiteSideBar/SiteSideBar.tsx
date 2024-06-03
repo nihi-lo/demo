@@ -15,9 +15,10 @@ import { useState } from "react";
 import { type SubAppID } from "@portal-core";
 import { VStack } from "@portal-ui";
 
+import { AccountSignInButton } from "@portal-app/components/model/account/AccountSignInButton";
+import { SiteManagementButton } from "@portal-app/components/model/site/SiteManagementButton";
 import { SubAppOverlaySelectMenuItem } from "@portal-app/components/model/subapp/SubAppOverlaySelectMenuItem";
 import { SubAppSortableSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSortableSelectMenuItem";
-import { ThemeToggleButton } from "@portal-app/components/model/theme/ThemeToggleButton";
 import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
 import { useFavoriteAppStore } from "@portal-app/stores/useFavoriteAppStore";
 import { APP_ID_HOME, APP_ID_OTHER } from "@portal-app/subApps";
@@ -86,7 +87,8 @@ const SiteSideBar = (): JSX.Element => {
 
       {/* 設定アプリエリア */}
       <VStack align="center" py="sm" gap="sm">
-        <ThemeToggleButton />
+        <AccountSignInButton />
+        <SiteManagementButton />
       </VStack>
     </VStack>
   );
