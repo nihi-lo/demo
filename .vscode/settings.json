@@ -1,4 +1,10 @@
 {
+  "files.exclude": {
+    "build": true,
+    "frontend/dist": true,
+    "frontend/node_modules": true
+  },
+
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
