@@ -78,14 +78,12 @@ func (a *PortalCore) SignIn() {
 	requestContent := string(buffer[:n])
 	fmt.Println("Received request:", requestContent)
 
-	// HTMLレスポンスを作成
+	// レスポンスを送信
 	response := "HTTP/1.1 200 OK\r\n" +
 		"Content-Type: text/html\r\n" +
 		"Connection: close\r\n" +
 		"\r\n" +
 		string(responseHtml)
-
-	// レスポンスを送信
 	_, err = conn.Write([]byte(response))
 	if err != nil {
 		return
