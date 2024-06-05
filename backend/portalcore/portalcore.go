@@ -15,6 +15,8 @@ var responseHtml []byte
 
 type PortalCore struct {
 	ctx context.Context
+
+	authListener *net.Listener /* 認証プロセスリスナー */
 }
 
 func NewPortalCore() *PortalCore {
@@ -37,6 +39,15 @@ func (a *PortalCore) GetOS() string {
 }
 
 func (a *PortalCore) SignIn() {
+	// ブラウザで認証ページを開く
+	wailsruntime.BrowserOpenURL(a.ctx, "http://localhost:3000/api/auth/signin")
+
+	// すでに認証プロセスが実行中の場合、ここで終了
+	if a.authListener != nil {
+		fmt.Println("すでに認証開始中")
+		return
+	}
+
 	// リスナーを作成
 	listener, err := net.Listen("tcp", "localhost:8080")
 	if err != nil {
@@ -44,8 +55,12 @@ func (a *PortalCore) SignIn() {
 	}
 	defer listener.Close()
 
-	// ブラウザで認証ページを開き、コールバックを待つ
-	wailsruntime.BrowserOpenURL(a.ctx, "http://localhost:3000/api/auth/signin")
+	a.authListener = &listener
+	defer func() {
+		a.authListener = nil
+	}()
+
+	// 認証サーバーからのコールバックを待つ
 	conn, err := listener.Accept()
 	if err != nil {
 		return
