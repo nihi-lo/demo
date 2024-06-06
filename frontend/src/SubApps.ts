@@ -1,4 +1,4 @@
-import { type SubAppID, type Metadata } from "@portal-core";
+import { type SubAppID, type Metadata } from "@portal-core/types";
 
 import { App as AboutApp, appMedadata as AboutAppMedadata } from "@packages/about-app";
 import { App as HomeApp, appMedadata as HomeAppMedadata } from "@packages/home-app";

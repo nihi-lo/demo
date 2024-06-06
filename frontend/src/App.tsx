@@ -5,14 +5,14 @@ import { tv } from "tailwind-variants";
 import { useWindow, useOS } from "@portal-core/hooks";
 import { VStack, HStack } from "@portal-core/ui";
 
-import { App as HomeApp } from "@packages/home-app";
-import { App as NotFoundApp } from "@packages/notfound-app";
-
 import { SiteBody } from "@portal-app/components/model/site/SiteBody";
 import { SiteHeader } from "@portal-app/components/model/site/SiteHeader";
 import { SiteSideBar } from "@portal-app/components/model/site/SiteSideBar";
 import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
 import { subApps } from "@portal-app/subApps";
+
+import { App as HomeApp } from "@packages/home-app";
+import { App as NotFoundApp } from "@packages/notfound-app";
 
 const variants = tv({
   slots: {

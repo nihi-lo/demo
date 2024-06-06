@@ -1,7 +1,8 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { Link } from "@nextui-org/react";
-import { type SubAppID } from "@portal-core";
+
+import { type SubAppID } from "@portal-core/types";
 
 import { SubAppSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSelectMenuItem";
 import { APP_ID_NOTFOUND, subApps } from "@portal-app/subApps";

@@ -25,11 +25,11 @@
     "baseUrl": ".",
     "paths": {
       /* 基本パッケージ */
-      "@portal-app/*": ["./src/*"],
-      "@portal-core": ["./packages/portal-core/src/index"],
-      "@portal-core/hooks": ["./packages/portal-core/src/hooks/index"],
-      "@portal-core/ui": ["./packages/portal-core/src/components/index"],
       "@wailsjs/*": ["./wailsjs/*"],
+      "@portal-core/hooks": ["./packages/portal-core/src/hooks/index"],
+      "@portal-core/types": ["./packages/portal-core/src/index"],
+      "@portal-core/ui": ["./packages/portal-core/src/components/index"],
+      "@portal-app/*": ["./src/*"],
 
       /* サブアプリパッケージ */
       "@packages/*": ["./packages/*/src/index"]

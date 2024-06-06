@@ -52,12 +52,12 @@ const config = {
             position: "before",
           },
           {
-            pattern: "@packages/**",
+            pattern: "@portal-app/**",
             group: "internal",
             position: "before",
           },
           {
-            pattern: "@portal-app/**",
+            pattern: "@packages/**",
             group: "internal",
             position: "before",
           },

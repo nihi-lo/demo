@@ -1,7 +1,8 @@
-import { type SubAppID } from "@portal-core";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
+
+import { type SubAppID } from "@portal-core/types";
 
 interface FavoriteAppState {
   favoriteApps: SubAppID[];
