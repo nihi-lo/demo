@@ -24,15 +24,15 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      // サブアプリパッケージ
-      "@packages/*": ["./packages/*/src/index"],
-
-      // 基本パッケージ
-      "@portal-core": ["./packages/portal-core/src/index"],
-      "@portal-hooks": ["./packages/portal-hooks/src/index"],
-      "@portal-ui": ["./packages/portal-ui/src/index"],
+      /* 基本パッケージ */
       "@portal-app/*": ["./src/*"],
-      "@wailsjs/*": ["./wailsjs/*"]
+      "@portal-core": ["./packages/portal-core/src/index"],
+      "@portal-core/hooks": ["./packages/portal-core/src/hooks/index"],
+      "@portal-core/ui": ["./packages/portal-core/src/components/index"],
+      "@wailsjs/*": ["./wailsjs/*"],
+
+      /* サブアプリパッケージ */
+      "@packages/*": ["./packages/*/src/index"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.js"],

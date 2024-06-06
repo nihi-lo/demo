@@ -36,11 +36,11 @@ func NewPortalCore() *PortalCore {
 	return &PortalCore{}
 }
 
-func (pc *PortalCore) SetContext(ctx context.Context) {
-	pc.ctx = ctx
+func (p *PortalCore) SetContext(ctx context.Context) {
+	p.ctx = ctx
 }
 
-func (pc *PortalCore) GetOS() string {
+func (p *PortalCore) GetOS() string {
 	switch runtime.GOOS {
 	case "windows":
 		return "windows"
@@ -51,12 +51,12 @@ func (pc *PortalCore) GetOS() string {
 	}
 }
 
-func (pc *PortalCore) SignIn() {
+func (p *PortalCore) SignIn() {
 	// ブラウザで認証ページを開く
-	wailsruntime.BrowserOpenURL(pc.ctx, "http://localhost:3000/api/auth/signin")
+	wailsruntime.BrowserOpenURL(p.ctx, "http://localhost:3000/api/auth/signin")
 
 	// すでに認証プロセスが実行中の場合、ここで終了
-	if pc.authListener != nil {
+	if p.authListener != nil {
 		return
 	}
 
@@ -67,9 +67,9 @@ func (pc *PortalCore) SignIn() {
 	}
 	defer listener.Close()
 
-	pc.authListener = &listener
+	p.authListener = &listener
 	defer func() {
-		pc.authListener = nil
+		p.authListener = nil
 	}()
 
 	// 認証サーバーからのコールバックを待つ
@@ -101,14 +101,17 @@ func (pc *PortalCore) SignIn() {
 		return
 	}
 
-	session, err := pc.getSession("")
+	sessionToken := ""
+	session, err := p.getSession(sessionToken)
 	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Printf("%+v\n", session)
+
+	wailsruntime.EventsEmit(p.ctx, "portal-core.onSessionTokenUpdate", sessionToken)
 }
 
-func (pc *PortalCore) getSession(sessionToken string) (NextAuthSession, error) {
+func (p *PortalCore) getSession(sessionToken string) (NextAuthSession, error) {
 	var session NextAuthSession
 
 	req, err := http.NewRequest("GET", "http://localhost:3000/api/auth/session", nil)

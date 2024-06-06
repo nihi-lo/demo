@@ -1,6 +1,7 @@
 import { Button, Tooltip } from "@nextui-org/react";
-import { useAuth } from "packages/portal-hooks/src/useAuth";
 import { TbUserSquareRounded } from "react-icons/tb";
+
+import { useAuth } from "@portal-core/hooks";
 
 const AccountSignInButton = (): JSX.Element => {
   const { signIn } = useAuth();

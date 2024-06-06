@@ -1,6 +1,6 @@
 import { TbMeat } from "react-icons/tb";
 
-import { VStack, Section, HStack } from "@portal-ui";
+import { HStack, VStack, Section } from "@portal-core/ui";
 
 const AppIcon = (): JSX.Element => {
   return (

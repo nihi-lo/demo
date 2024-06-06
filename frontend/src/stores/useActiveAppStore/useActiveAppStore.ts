@@ -1,7 +1,6 @@
+import { type SubAppID } from "@portal-core";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-
-import { type SubAppID } from "@portal-core";
 
 interface ActiveAppState {
   activeApp: SubAppID;

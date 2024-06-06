@@ -1,6 +1,5 @@
-import { useWindow } from "@portal-hooks";
-
-import { HStack } from "@packages/portal-ui";
+import { useWindow } from "@portal-core/hooks";
+import { HStack } from "@portal-core/ui";
 
 import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
 import { APP_ID_NOTFOUND, subApps } from "@portal-app/subApps";

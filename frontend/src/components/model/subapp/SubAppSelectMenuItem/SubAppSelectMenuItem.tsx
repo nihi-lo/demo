@@ -1,6 +1,6 @@
 import { Tooltip } from "@nextui-org/react";
 
-import { HStack } from "@portal-ui";
+import { HStack } from "@portal-core/ui";
 
 import {
   type SubAppSelectMenuItemVariantProps as VariantProps,

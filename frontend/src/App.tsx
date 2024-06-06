@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { Routes, Route, useMatch } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
-import { useOS, useWindow } from "@portal-hooks";
-import { HStack, VStack } from "@portal-ui";
+import { useWindow, useOS } from "@portal-core/hooks";
+import { VStack, HStack } from "@portal-core/ui";
 
 import { App as HomeApp } from "@packages/home-app";
 import { App as NotFoundApp } from "@packages/notfound-app";

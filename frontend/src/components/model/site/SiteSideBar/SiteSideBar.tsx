@@ -10,10 +10,10 @@ import {
 } from "@dnd-kit/core";
 import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { Divider } from "@nextui-org/react";
+import { type SubAppID } from "@portal-core";
 import { useState } from "react";
 
-import { type SubAppID } from "@portal-core";
-import { VStack } from "@portal-ui";
+import { VStack } from "@portal-core/ui";
 
 import { AccountSignInButton } from "@portal-app/components/model/account/AccountSignInButton";
 import { SiteManagementButton } from "@portal-app/components/model/site/SiteManagementButton";

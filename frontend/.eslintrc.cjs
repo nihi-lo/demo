@@ -47,7 +47,7 @@ const config = {
             position: "before",
           },
           {
-            pattern: "@portal-*",
+            pattern: "@portal-core/**",
             group: "internal",
             position: "before",
           },
@@ -78,8 +78,8 @@ const config = {
       "error",
       [
         {
-          module: "wailsjs/**",
-          allowReferenceFrom: ["**.hooks.ts", "**/hooks", "packages/portal-hooks"],
+          module: "@wailsjs/**",
+          allowReferenceFrom: ["**.hooks.ts", "**/hooks/**"],
           allowSameModule: true,
         },
       ],

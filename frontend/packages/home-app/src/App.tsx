@@ -1,7 +1,7 @@
 import { Input, Button } from "@nextui-org/react";
 import { TbHome } from "react-icons/tb";
 
-import { Container, VStack, Section, HStack } from "@portal-ui";
+import { Container, HStack, VStack, Section } from "@portal-core/ui";
 
 import { useApp } from "./App.hooks";
 
