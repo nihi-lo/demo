@@ -1,25 +1,23 @@
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 
 import { SignIn } from "@wailsjs/go/portalcore/Core";
-import { EventsOn } from "@wailsjs/runtime/runtime";
 
 interface useAuthHooks {
+  handleSessionTokenUpdate: (sessionToken: string) => void;
   signIn: () => void;
 }
 
 const useAuth = (): useAuthHooks => {
-  useEffect(() => {
-    EventsOn("portal-core.onSessionTokenUpdate", (sessionToken: string) => {
-      console.log(sessionToken);
-    });
-  }, []);
-
   /* Event handlers */
+  const handleSessionTokenUpdate = (sessionToken: string): void => {
+    console.log(sessionToken);
+  };
   const signIn = () => {
     void SignIn();
   };
 
   return {
+    handleSessionTokenUpdate: useCallback(handleSessionTokenUpdate, []),
     signIn: useCallback(signIn, []),
   };
 };
