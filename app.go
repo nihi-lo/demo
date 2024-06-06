@@ -6,38 +6,36 @@ import (
 	"context"
 )
 
-// App struct
-type App struct {
-	portalCore *portalcore.Core
-
-	/* sub apps */
-	homeApp *homeapp.App
+type SubApplication interface {
+	SetContext(ctx context.Context)
 }
 
-// NewApp creates a new App application struct
+type App struct {
+	subApps []SubApplication
+}
+
 func NewApp() *App {
 	return &App{
-		portalCore: portalcore.NewPortalCore(),
+		subApps: []SubApplication{
+			portalcore.NewPortalCore(),
 
-		/* sub apps */
-		homeApp: homeapp.NewApp(),
+			/* sub apps */
+			homeapp.NewApp(),
+		},
 	}
 }
 
-// startup is called when the app starts. The context is saved
-// so we can call the runtime methods
 func (a *App) startup(ctx context.Context) {
-	a.portalCore.SetContext(ctx)
-
-	/* sub apps */
-	a.homeApp.SetContext(ctx)
+	for _, subApp := range a.subApps {
+		subApp.SetContext(ctx)
+	}
 }
 
-func (a *App) apps() []interface{} {
-	return []interface{}{
-		a.portalCore,
-
-		/* sub apps */
-		a.homeApp,
+func (a *App) GetSubApps() []any {
+	subApps := []any{}
+	for _, subApp := range a.subApps {
+		subApps = append(subApps, subApp)
 	}
+
+	return subApps
 }

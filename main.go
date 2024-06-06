@@ -28,7 +28,7 @@ func main() {
 		OnStartup:        app.startup,
 		CSSDragProperty:  "widows",
 		CSSDragValue:     "1",
-		Bind:             app.apps(),
+		Bind:             app.GetSubApps(),
 		Mac: &mac.Options{
 			TitleBar: mac.TitleBarHiddenInset(),
 		},
