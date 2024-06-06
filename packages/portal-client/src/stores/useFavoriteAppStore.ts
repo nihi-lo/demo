@@ -4,22 +4,22 @@ import { immer } from "zustand/middleware/immer";
 
 import { type SubAppID } from "@portal-core/types";
 
-interface FavoriteAppState {
+interface FavoriteAppOrderState {
   favoriteApps: SubAppID[];
 }
 
-interface FavoriteAppAction {
+interface FavoriteAppOrderAction {
   setFavoriteApps: (by: SubAppID[]) => void;
 }
 
-const useFavoriteAppStore = create<FavoriteAppState & FavoriteAppAction>()(
+const useFavoriteAppStore = create<FavoriteAppOrderState & FavoriteAppOrderAction>()(
   persist(
     immer((set) => ({
       favoriteApps: [100, 101],
       setFavoriteApps: (by) => set((state) => void (state.favoriteApps = by)),
     })),
-    { name: "favoriteApps" },
+    { name: "portal-client.favorite-app-order" },
   ),
 );
 
-export { type FavoriteAppState, type FavoriteAppAction, useFavoriteAppStore };
+export { useFavoriteAppStore };

@@ -22,4 +22,4 @@ const useActiveAppStore = create<ActiveAppState & ActiveAppAction>()(
   })),
 );
 
-export { type ActiveAppState, type ActiveAppAction, useActiveAppStore };
+export { useActiveAppStore };
