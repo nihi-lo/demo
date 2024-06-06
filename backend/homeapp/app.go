@@ -5,19 +5,19 @@ import (
 	"fmt"
 )
 
-type HomeApp struct {
+type App struct {
 	ctx context.Context
 }
 
-func NewHomeApp() *HomeApp {
-	return &HomeApp{}
+func NewApp() *App {
+	return &App{}
 }
 
-func (h *HomeApp) SetContext(ctx context.Context) {
-	h.ctx = ctx
+func (a *App) SetContext(ctx context.Context) {
+	a.ctx = ctx
 }
 
-func (h *HomeApp) Greet(name string) (string, error) {
+func (a *App) Greet(name string) (string, error) {
 	if name == "" {
 		return "Oops, there's no name in it! :(", nil
 	}

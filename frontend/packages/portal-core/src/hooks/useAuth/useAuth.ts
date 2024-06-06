@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 
-import { SignIn } from "@wailsjs/go/portalcore/PortalCore";
+import { SignIn } from "@wailsjs/go/portalcore/Core";
 import { EventsOn } from "@wailsjs/runtime/runtime";
 
 interface useAuthHooks {

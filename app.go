@@ -8,10 +8,10 @@ import (
 
 // App struct
 type App struct {
-	portalCore *portalcore.PortalCore
+	portalCore *portalcore.Core
 
 	/* sub apps */
-	homeApp *homeapp.HomeApp
+	homeApp *homeapp.App
 }
 
 // NewApp creates a new App application struct
@@ -20,7 +20,7 @@ func NewApp() *App {
 		portalCore: portalcore.NewPortalCore(),
 
 		/* sub apps */
-		homeApp: homeapp.NewHomeApp(),
+		homeApp: homeapp.NewApp(),
 	}
 }
 
