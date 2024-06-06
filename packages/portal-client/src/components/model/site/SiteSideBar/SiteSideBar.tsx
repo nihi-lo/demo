@@ -15,13 +15,13 @@ import { useState } from "react";
 import { type SubAppID } from "@portal-core/types";
 import { VStack } from "@portal-core/ui";
 
-import { AccountSignInButton } from "@portal-app/components/model/account/AccountSignInButton";
-import { SiteManagementButton } from "@portal-app/components/model/site/SiteManagementButton";
-import { SubAppOverlaySelectMenuItem } from "@portal-app/components/model/subapp/SubAppOverlaySelectMenuItem";
-import { SubAppSortableSelectMenuItem } from "@portal-app/components/model/subapp/SubAppSortableSelectMenuItem";
-import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
-import { useFavoriteAppStore } from "@portal-app/stores/useFavoriteAppStore";
-import { APP_ID_HOME, APP_ID_OTHER } from "@portal-app/subApps";
+import { AccountSignInButton } from "@portal-client/components/model/account/AccountSignInButton";
+import { SiteManagementButton } from "@portal-client/components/model/site/SiteManagementButton";
+import { SubAppOverlaySelectMenuItem } from "@portal-client/components/model/subapp/SubAppOverlaySelectMenuItem";
+import { SubAppSortableSelectMenuItem } from "@portal-client/components/model/subapp/SubAppSortableSelectMenuItem";
+import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
+import { useFavoriteAppStore } from "@portal-client/stores/useFavoriteAppStore";
+import { APP_ID_HOME, APP_ID_OTHER } from "@portal-client/subApps";
 
 const SiteSideBar = (): JSX.Element => {
   const activeApp = useActiveAppStore((state) => state.activeApp);

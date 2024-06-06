@@ -52,7 +52,7 @@ const config = {
             position: "before",
           },
           {
-            pattern: "@portal-app/**",
+            pattern: "@portal-client/**",
             group: "internal",
             position: "before",
           },

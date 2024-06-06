@@ -1,6 +1,6 @@
 import { Tooltip } from "@nextui-org/react";
 
-import { ThemeToggleButton } from "@portal-app/components/model/theme/ThemeToggleButton";
+import { ThemeToggleButton } from "@portal-client/components/model/theme/ThemeToggleButton";
 
 const SiteManagementButton = (): JSX.Element => {
   return (

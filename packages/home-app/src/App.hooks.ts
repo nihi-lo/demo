@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 import { Greet } from "@wailsjs/go/homeapp/App";
 
-import { useUserStore } from "@portal-app/stores/useUserStore";
+import { useUserStore } from "@portal-client/stores/useUserStore";
 
 interface AppHooks {
   inputName: string;

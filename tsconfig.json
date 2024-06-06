@@ -29,7 +29,7 @@
       "@portal-core/hooks": ["./packages/portal-core/src/hooks/index"],
       "@portal-core/types": ["./packages/portal-core/src/index"],
       "@portal-core/ui": ["./packages/portal-core/src/components/index"],
-      "@portal-app/*": ["./src/*"],
+      "@portal-client/*": ["./packages/portal-client/src/*"],
 
       /* サブアプリパッケージ */
       "@sub-app/about-app/*": ["./packages/about-app/src/*"],

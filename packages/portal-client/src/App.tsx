@@ -5,11 +5,11 @@ import { tv } from "tailwind-variants";
 import { useWindow, useOS } from "@portal-core/hooks";
 import { VStack, HStack } from "@portal-core/ui";
 
-import { SiteBody } from "@portal-app/components/model/site/SiteBody";
-import { SiteHeader } from "@portal-app/components/model/site/SiteHeader";
-import { SiteSideBar } from "@portal-app/components/model/site/SiteSideBar";
-import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
-import { subApps } from "@portal-app/subApps";
+import { SiteBody } from "@portal-client/components/model/site/SiteBody";
+import { SiteHeader } from "@portal-client/components/model/site/SiteHeader";
+import { SiteSideBar } from "@portal-client/components/model/site/SiteSideBar";
+import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
+import { subApps } from "@portal-client/subApps";
 
 import { App as HomeApp } from "@sub-app/home-app/App";
 import { App as NotFoundApp } from "@sub-app/notfound-app/App";
