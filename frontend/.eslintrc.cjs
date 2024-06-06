@@ -57,7 +57,7 @@ const config = {
             position: "before",
           },
           {
-            pattern: "@packages/**",
+            pattern: "@sub-app/**",
             group: "internal",
             position: "before",
           },

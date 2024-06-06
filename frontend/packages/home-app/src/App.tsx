@@ -24,20 +24,13 @@ const App = (): JSX.Element => {
             <VStack align="start" justify="center" gap="sm">
               <div>Please enter your name below 👇</div>
               <HStack align="center" justify="center" gap="sm">
-                <Input
-                  label="Name"
-                  defaultValue={inputName}
-                  onChange={(e) => handleInputChange(e.target.value)}
-                />
+                <Input label="Name" defaultValue={inputName} onValueChange={handleInputChange} />
                 <Button color="primary" onClick={handleGreetClick}>
                   Greet
                 </Button>
               </HStack>
               {resultText && <div>{resultText}</div>}
             </VStack>
-          </Section>
-          <Section headingAs="h1" title="Dummy">
-            <div className="h-screen"></div>
           </Section>
         </VStack>
       </Container>

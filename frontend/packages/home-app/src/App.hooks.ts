@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { Greet } from "@wailsjs/go/exampleapp/ExampleApp";
+import { Greet } from "@wailsjs/go/homeapp/HomeApp";
 
 import { useUserStore } from "@portal-app/stores/useUserStore";
 

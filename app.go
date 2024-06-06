@@ -1,7 +1,7 @@
 package main
 
 import (
-	"changeme/backend/exampleapp"
+	"changeme/backend/homeapp"
 	"changeme/backend/portalcore"
 	"context"
 )
@@ -11,7 +11,7 @@ type App struct {
 	portalCore *portalcore.PortalCore
 
 	/* sub apps */
-	exampleApp *exampleapp.ExampleApp
+	homeApp *homeapp.HomeApp
 }
 
 // NewApp creates a new App application struct
@@ -20,7 +20,7 @@ func NewApp() *App {
 		portalCore: portalcore.NewPortalCore(),
 
 		/* sub apps */
-		exampleApp: exampleapp.NewExampleApp(),
+		homeApp: homeapp.NewHomeApp(),
 	}
 }
 
@@ -30,7 +30,7 @@ func (a *App) startup(ctx context.Context) {
 	a.portalCore.SetContext(ctx)
 
 	/* sub apps */
-	a.exampleApp.SetContext(ctx)
+	a.homeApp.SetContext(ctx)
 }
 
 func (a *App) apps() []interface{} {
@@ -38,6 +38,6 @@ func (a *App) apps() []interface{} {
 		a.portalCore,
 
 		/* sub apps */
-		a.exampleApp,
+		a.homeApp,
 	}
 }

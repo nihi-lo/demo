@@ -1,9 +1,13 @@
 import { type SubAppID, type Metadata } from "@portal-core/types";
 
-import { App as AboutApp, appMedadata as AboutAppMedadata } from "@packages/about-app";
-import { App as HomeApp, appMedadata as HomeAppMedadata } from "@packages/home-app";
-import { App as NotfoundApp, appMedadata as NotfoundAppMedadata } from "@packages/notfound-app";
-import { App as OtherAppsApp, appMedadata as OtherAppsAppMedadata } from "@packages/otherapps-app";
+import { App as AboutApp } from "@sub-app/about-app/App";
+import { appMedadata as AboutAppMedadata } from "@sub-app/about-app/metadata";
+import { App as HomeApp } from "@sub-app/home-app/App";
+import { appMedadata as HomeAppMedadata } from "@sub-app/home-app/metadata";
+import { App as NotfoundApp } from "@sub-app/notfound-app/App";
+import { appMedadata as NotfoundAppMedadata } from "@sub-app/notfound-app/metadata";
+import { App as OtherAppsApp } from "@sub-app/otherapps-app/App";
+import { appMedadata as OtherAppsAppMedadata } from "@sub-app/otherapps-app/metadata";
 
 export const APP_ID_NOTFOUND = 0;
 export const APP_ID_HOME = 1;

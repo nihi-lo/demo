@@ -11,8 +11,8 @@ import { SiteSideBar } from "@portal-app/components/model/site/SiteSideBar";
 import { useActiveAppStore } from "@portal-app/stores/useActiveAppStore";
 import { subApps } from "@portal-app/subApps";
 
-import { App as HomeApp } from "@packages/home-app";
-import { App as NotFoundApp } from "@packages/notfound-app";
+import { App as HomeApp } from "@sub-app/home-app/App";
+import { App as NotFoundApp } from "@sub-app/notfound-app/App";
 
 const variants = tv({
   slots: {
