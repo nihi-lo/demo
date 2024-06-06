@@ -1,9 +1,10 @@
 package main
 
 import (
-	"changeme/backend/homeapp"
-	"changeme/backend/portalcore"
 	"context"
+
+	homeapp "changeme/packages/home-app/src/backend"
+	portalcore "changeme/packages/portal-core/src/backend"
 )
 
 type SubApplication interface {
@@ -17,10 +18,8 @@ type App struct {
 func NewApp() *App {
 	return &App{
 		subApps: []SubApplication{
-			portalcore.NewPortalCore(),
-
-			/* sub apps */
 			homeapp.NewApp(),
+			portalcore.NewCore(),
 		},
 	}
 }

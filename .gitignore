@@ -1,7 +1,10 @@
 ### Wails ###
 build/bin
 node_modules
-frontend/dist
+dist
+
+### Vitest ###
+coverage
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,git,visualstudiocode,go
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,git,visualstudiocode,go

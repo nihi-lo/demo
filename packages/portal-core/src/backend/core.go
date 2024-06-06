@@ -32,7 +32,7 @@ type Core struct {
 	authListener *net.Listener /* 認証プロセスリスナー */
 }
 
-func NewPortalCore() *Core {
+func NewCore() *Core {
 	return &Core{}
 }
 
