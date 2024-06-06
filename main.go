@@ -25,10 +25,10 @@ func main() {
 			Assets: assets,
 		},
 		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
-		OnStartup:        app.startup,
+		OnStartup:        app.HandleStartup,
 		CSSDragProperty:  "widows",
 		CSSDragValue:     "1",
-		Bind:             app.GetSubApps(),
+		Bind:             app.SubApps(),
 		Mac: &mac.Options{
 			TitleBar: mac.TitleBarHiddenInset(),
 		},

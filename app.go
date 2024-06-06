@@ -25,13 +25,13 @@ func NewApp() *App {
 	}
 }
 
-func (a *App) startup(ctx context.Context) {
+func (a *App) HandleStartup(ctx context.Context) {
 	for _, subApp := range a.subApps {
 		subApp.SetContext(ctx)
 	}
 }
 
-func (a *App) GetSubApps() []any {
+func (a *App) SubApps() []any {
 	subApps := []any{}
 	for _, subApp := range a.subApps {
 		subApps = append(subApps, subApp)
