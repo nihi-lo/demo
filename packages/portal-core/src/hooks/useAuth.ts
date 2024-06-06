@@ -9,7 +9,7 @@ interface useAuthHooks {
 
 const useAuth = (): useAuthHooks => {
   /* Event handlers */
-  const handleSessionTokenUpdate = (sessionToken: string): void => {
+  const handleSessionTokenUpdate = (sessionToken: string) => {
     console.log(sessionToken);
   };
   const signIn = () => {
