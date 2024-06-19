@@ -6,13 +6,12 @@ import { useSessionStore } from "@portal-core/stores";
 
 const AccountSignInButton = (): JSX.Element => {
   const session = useSessionStore((state) => state.session);
-
   const { signIn } = useAuth();
 
   return (
     <Tooltip
       placement="right"
-      content="アカウント"
+      content={session ? `${session.user.name} でサインイン中` : "サインイン"}
       closeDelay={0}
       classNames={{ base: "pointer-events-none select-none" }}
     >
