@@ -8,6 +8,7 @@
 
   "files.exclude": {
     "build/bin": true,
+    "coverage": true,
     "dist": true,
     "node_modules": true
   },
