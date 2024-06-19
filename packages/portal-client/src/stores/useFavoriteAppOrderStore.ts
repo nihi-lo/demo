@@ -12,7 +12,7 @@ interface FavoriteAppOrderAction {
   setFavoriteApps: (by: SubAppID[]) => void;
 }
 
-const useFavoriteAppStore = create<FavoriteAppOrderState & FavoriteAppOrderAction>()(
+const useFavoriteAppOrderStore = create<FavoriteAppOrderState & FavoriteAppOrderAction>()(
   persist(
     immer((set) => ({
       favoriteApps: [100, 101],
@@ -22,4 +22,4 @@ const useFavoriteAppStore = create<FavoriteAppOrderState & FavoriteAppOrderActio
   ),
 );
 
-export { useFavoriteAppStore };
+export { useFavoriteAppOrderStore };

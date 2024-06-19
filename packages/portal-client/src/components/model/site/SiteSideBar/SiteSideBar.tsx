@@ -20,13 +20,13 @@ import { SiteManagementButton } from "@portal-client/components/model/site/SiteM
 import { SubAppOverlaySelectMenuItem } from "@portal-client/components/model/subapp/SubAppOverlaySelectMenuItem";
 import { SubAppSortableSelectMenuItem } from "@portal-client/components/model/subapp/SubAppSortableSelectMenuItem";
 import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
-import { useFavoriteAppStore } from "@portal-client/stores/useFavoriteAppStore";
+import { useFavoriteAppOrderStore } from "@portal-client/stores/useFavoriteAppOrderStore";
 import { APP_ID_HOME, APP_ID_OTHER } from "@portal-client/subApps";
 
 const SiteSideBar = (): JSX.Element => {
   const activeApp = useActiveAppStore((state) => state.activeApp);
-  const favoriteApps = useFavoriteAppStore((state) => state.favoriteApps);
-  const setFavoriteApps = useFavoriteAppStore((state) => state.setFavoriteApps);
+  const favoriteApps = useFavoriteAppOrderStore((state) => state.favoriteApps);
+  const setFavoriteApps = useFavoriteAppOrderStore((state) => state.setFavoriteApps);
 
   const [activeID, setActiveID] = useState<SubAppID | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 0 } }));

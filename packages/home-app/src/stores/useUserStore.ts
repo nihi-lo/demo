@@ -16,7 +16,7 @@ const useUserStore = create<UserState & UserAction>()(
       name: "",
       updateName: (by) => set((state) => void (state.name = by)),
     })),
-    { name: "portal-client.user" },
+    { name: "home-app.user" },
   ),
 );
 
