@@ -51,6 +51,7 @@ tasks:
       - npm run test:ui
     silent: true
 
+  # npm package にアップデートがないかを確認します
   ncu:
     cmds:
       - npx npm-check-updates -i --format group
