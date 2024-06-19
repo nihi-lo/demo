@@ -50,3 +50,8 @@ tasks:
     cmds:
       - npm run test:ui
     silent: true
+
+  ncu:
+    cmds:
+      - npx npm-check-updates -i --format group
+    silent: true
