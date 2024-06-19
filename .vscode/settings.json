@@ -1,15 +1,17 @@
 {
-  "files.exclude": {
-    "build": true,
-    "dist": true,
-    "node_modules": true
-  },
-
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
     "source.fixAll.eslint": "explicit"
   },
+
+  "files.exclude": {
+    "build/bin": true,
+    "dist": true,
+    "node_modules": true
+  },
+
   "tailwindCSS.experimental.classRegex": [
     ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ]
