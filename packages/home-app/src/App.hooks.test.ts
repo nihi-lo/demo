@@ -18,7 +18,7 @@ describe("Testing useApp", () => {
   });
 
   test("handleGreetClickを実行するとresultTextが更新されること", async () => {
-    vi.mock("@wailsjs/go/main/App", () => ({
+    vi.mock("@wailsjs/go/homeapp/App", () => ({
       Greet: vitest.fn().mockResolvedValue("foo"),
     }));
 
