@@ -2,18 +2,18 @@ import { useEffect } from "react";
 
 import { EventsOn } from "@wailsjs/runtime/runtime";
 
-import { useAuth } from "@portal-core/hooks";
+import { useSessionStore } from "@portal-core/stores";
 
 interface PortalCoreProviderProps {
   children: React.ReactNode;
 }
 
 const PortalCoreProvider = ({ children }: PortalCoreProviderProps): JSX.Element => {
-  const { handleSessionTokenUpdate } = useAuth();
+  const updateSession = useSessionStore((state) => state.updateSession);
 
   useEffect(() => {
-    EventsOn("portal-core.onSessionTokenUpdate", handleSessionTokenUpdate);
-  }, [handleSessionTokenUpdate]);
+    EventsOn("portal-core.onSessionTokenUpdate", updateSession);
+  }, [updateSession]);
 
   return <>{children}</>;
 };

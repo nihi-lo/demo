@@ -27,6 +27,7 @@
       /* 基本パッケージ */
       "@wailsjs/*": ["./wailsjs/*"],
       "@portal-core/hooks": ["./packages/portal-core/src/hooks/index"],
+      "@portal-core/stores": ["./packages/portal-core/src/stores/index"],
       "@portal-core/types": ["./packages/portal-core/src/types/index"],
       "@portal-core/ui": ["./packages/portal-core/src/components/index"],
       "@portal-client/*": ["./packages/portal-client/src/*"],

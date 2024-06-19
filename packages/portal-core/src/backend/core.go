@@ -15,7 +15,7 @@ import (
 
 type NextAuthSession struct {
 	User struct {
-		Name  string `json:"user"`
+		Name  string `json:"name"`
 		Email string `json:"email"`
 		Image string `json:"image"`
 		Id    string `json:"id"`
@@ -108,7 +108,7 @@ func (c *Core) SignIn() {
 	}
 	fmt.Printf("%+v\n", session)
 
-	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", sessionToken)
+	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session)
 }
 
 func (c *Core) getSession(sessionToken string) (NextAuthSession, error) {
