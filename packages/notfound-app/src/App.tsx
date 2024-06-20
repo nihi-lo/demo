@@ -4,6 +4,8 @@ import { TbAlertTriangleFilled } from "react-icons/tb";
 import { type Metadata } from "@portal-core/types";
 import { HStack, VStack } from "@portal-core/ui";
 
+import { APP_ID_HOME } from "@portal-client/subApps";
+
 const metadata: Metadata = {
   title: "不明なアプリ",
   description: "",
@@ -21,7 +23,7 @@ const App = (): JSX.Element => {
         <TbAlertTriangleFilled className="size-12 text-warning" />
         <p className="text-2xl">不明なアプリ</p>
       </HStack>
-      <Link href={`/${1}`} underline="always">
+      <Link href={`/${APP_ID_HOME}`} underline="always">
         ホームへ戻る
       </Link>
     </VStack>
