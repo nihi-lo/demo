@@ -10,7 +10,7 @@ export const APP_ID_HOME = 1;
 export const APP_ID_OTHER = 2;
 
 export const subApps = new Map<SubAppID, { metadata: Metadata; Page: () => JSX.Element }>([
-  /* 標準アプリ */
+  /* 基本アプリ */
   [APP_ID_NOTFOUND, { metadata: NotfoundAppMetadata, Page: NotfoundApp }],
   [APP_ID_HOME, { metadata: HomeAppMetadata, Page: HomeApp }],
   [APP_ID_OTHER, { metadata: OtherAppsAppMetadata, Page: OtherAppsApp }],

@@ -3,12 +3,12 @@ package main
 import (
 	"context"
 
-	aboutapp "changeme/packages/about-app/src/backend"
-	homeapp "changeme/packages/home-app/src/backend"
-	notfoundapp "changeme/packages/notfound-app/src/backend"
-	otherappsapp "changeme/packages/otherapps-app/src/backend"
-	portalclient "changeme/packages/portal-client/src/backend"
-	portalcore "changeme/packages/portal-core/src/backend"
+	aboutapp "changeme/packages/about-app/backend"
+	homeapp "changeme/packages/home-app/backend"
+	notfoundapp "changeme/packages/notfound-app/backend"
+	otherappsapp "changeme/packages/otherapps-app/backend"
+	portalclient "changeme/packages/portal-client/backend"
+	portalcore "changeme/packages/portal-core/backend"
 )
 
 type SubApplication interface {
@@ -22,12 +22,15 @@ type App struct {
 func NewApp() *App {
 	return &App{
 		subApps: []SubApplication{
+			/* 基本パッケージ */
+			portalcore.NewCore(),
+			portalclient.NewClient(),
+
+			/* サブアプリパッケージ */
 			aboutapp.NewApp(),
 			homeapp.NewApp(),
 			notfoundapp.NewApp(),
 			otherappsapp.NewApp(),
-			portalclient.NewClient(),
-			portalcore.NewCore(),
 		},
 	}
 }

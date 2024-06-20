@@ -24,8 +24,10 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      /* 基本パッケージ */
+      /* Wails Bindings */
       "@wailsjs/*": ["./wailsjs/*"],
+
+      /* 基本パッケージ */
       "@portal-core/hooks": ["./packages/portal-core/src/hooks/index"],
       "@portal-core/stores": ["./packages/portal-core/src/stores/index"],
       "@portal-core/types": ["./packages/portal-core/src/types/index"],
