@@ -19,7 +19,7 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:     "demo",
+		Title:     "demo-portal",
 		Width:     1024,
 		Height:    768,
 		Frameless: runtime.GOOS == "windows",
