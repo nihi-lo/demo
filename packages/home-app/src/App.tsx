@@ -1,16 +1,19 @@
 import { Input, Button } from "@nextui-org/react";
 import { TbHome } from "react-icons/tb";
 
+import { type Metadata } from "@portal-core/types";
 import { Container, HStack, VStack, Section } from "@portal-core/ui";
 
 import { useApp } from "./App.hooks";
 
-const AppIcon = (): JSX.Element => {
-  return (
+const metadata: Metadata = {
+  title: "ホーム",
+  description: "",
+  AppIcon: () => (
     <HStack align="center" justify="center" className="size-12 bg-content2">
       <TbHome className="size-8 text-content2-foreground" />
     </HStack>
-  );
+  ),
 };
 
 const App = (): JSX.Element => {
@@ -38,4 +41,5 @@ const App = (): JSX.Element => {
   );
 };
 
-export { AppIcon, App };
+// eslint-disable-next-line react-refresh/only-export-components
+export { metadata, App };

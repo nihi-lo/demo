@@ -1,14 +1,17 @@
 import { Link } from "@nextui-org/react";
 import { TbAlertTriangleFilled } from "react-icons/tb";
 
+import { type Metadata } from "@portal-core/types";
 import { HStack, VStack } from "@portal-core/ui";
 
-const AppIcon = (): JSX.Element => {
-  return (
+const metadata: Metadata = {
+  title: "不明なアプリ",
+  description: "",
+  AppIcon: () => (
     <HStack align="center" justify="center" className="size-12 bg-content2">
       <TbAlertTriangleFilled className="size-8 text-warning" />
     </HStack>
-  );
+  ),
 };
 
 const App = (): JSX.Element => {
@@ -25,4 +28,5 @@ const App = (): JSX.Element => {
   );
 };
 
-export { AppIcon, App };
+// eslint-disable-next-line react-refresh/only-export-components
+export { metadata, App };

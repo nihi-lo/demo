@@ -1,13 +1,16 @@
 import { TbMeat } from "react-icons/tb";
 
+import { type Metadata } from "@portal-core/types";
 import { HStack, VStack, Section } from "@portal-core/ui";
 
-const AppIcon = (): JSX.Element => {
-  return (
+const metadata: Metadata = {
+  title: "ポータルアプリについて",
+  description: "",
+  AppIcon: () => (
     <HStack align="center" justify="center" className="size-12 bg-[#e17b34]">
       <TbMeat className="size-8 text-black" />
     </HStack>
-  );
+  ),
 };
 
 const App = (): JSX.Element => {
@@ -18,4 +21,5 @@ const App = (): JSX.Element => {
   );
 };
 
-export { AppIcon, App };
+// eslint-disable-next-line react-refresh/only-export-components
+export { metadata, App };
