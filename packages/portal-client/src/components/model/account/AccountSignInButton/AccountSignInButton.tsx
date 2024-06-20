@@ -27,6 +27,5 @@ const AccountSignInButton = (): JSX.Element => {
     </Tooltip>
   );
 };
-AccountSignInButton.displayName = "AccountSignInButton";
 
 export { AccountSignInButton };

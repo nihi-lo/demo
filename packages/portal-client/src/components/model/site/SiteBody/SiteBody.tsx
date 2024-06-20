@@ -17,6 +17,5 @@ const SiteBody = ({ children }: SiteBodyProps): JSX.Element => {
     </div>
   );
 };
-SiteBody.displayName = "SiteBody";
 
 export { type SiteBodyProps, SiteBody };

@@ -75,6 +75,5 @@ const ThemeToggleButton = ({ ...props }: ThemeToggleButtonProps): JSX.Element =>
     </Dropdown>
   );
 };
-ThemeToggleButton.displayName = "ThemeToggleButton";
 
 export { ThemeToggleButton };

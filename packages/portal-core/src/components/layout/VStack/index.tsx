@@ -32,6 +32,5 @@ const VStack = ({
     </Tag>
   );
 };
-VStack.displayName = "VStack";
 
 export { type VStackProps, VStack };

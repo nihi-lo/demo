@@ -32,6 +32,5 @@ const HStack = ({
     </Tag>
   );
 };
-HStack.displayName = "HStack";
 
 export { type HStackProps, HStack };

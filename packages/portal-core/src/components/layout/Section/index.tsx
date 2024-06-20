@@ -41,6 +41,5 @@ const Section = ({
     </section>
   );
 };
-Section.displayName = "Section";
 
 export { type SectionProps, Section };

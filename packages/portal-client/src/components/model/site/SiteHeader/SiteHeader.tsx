@@ -46,6 +46,5 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
     </header>
   );
 };
-SiteHeader.displayName = "SiteHeader";
 
 export { type SiteHeaderProps, SiteHeader };

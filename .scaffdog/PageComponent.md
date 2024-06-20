@@ -58,7 +58,6 @@ const {{ ComponentName }} = (): JSX.Element => {
     </VStack>
   );
 };
-{{ ComponentName }}.displayName = "{{ ComponentName }}";
 
 export { {{ ComponentName }} };
 ```

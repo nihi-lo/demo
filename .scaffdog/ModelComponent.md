@@ -36,7 +36,6 @@ const {{ ComponentName }} = ({ ...props }: {{ ComponentName }}Props): JSX.Elemen
 
   return <div className={base()} {...props}></div>;
 };
-{{ ComponentName }}.displayName = "{{ ComponentName }}";
 
 export { type {{ ComponentName }}Props, {{ ComponentName }} };
 ```

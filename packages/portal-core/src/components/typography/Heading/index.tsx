@@ -16,6 +16,5 @@ const Heading = ({ as: Tag = "h1", className, ...props }: HeadingProps): JSX.Ele
     </Tag>
   );
 };
-Heading.displayName = "Heading";
 
 export { type HeadingProps, Heading };

@@ -3,6 +3,5 @@ import { ThemeToggleButton } from "@portal-client/components/model/theme/ThemeTo
 const SiteManagementButton = (): JSX.Element => {
   return <ThemeToggleButton />;
 };
-SiteManagementButton.displayName = "SiteManagementButton";
 
 export { SiteManagementButton };

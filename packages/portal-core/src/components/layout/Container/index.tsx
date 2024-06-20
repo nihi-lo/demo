@@ -28,6 +28,5 @@ const Container = ({
     </Tag>
   );
 };
-Container.displayName = "Container";
 
 export { type ContainerProps, Container };
