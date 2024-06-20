@@ -1,4 +1,5 @@
 {
+  // editor
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
@@ -6,6 +7,8 @@
     "source.fixAll.eslint": "explicit"
   },
 
+  // files
+  "files.eol": "\n",
   "files.exclude": {
     "build/bin": true,
     "coverage": true,
@@ -13,7 +16,32 @@
     "node_modules": true
   },
 
+  // tailwindCSS
   "tailwindCSS.experimental.classRegex": [
     ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+  ],
+
+  // go
+  "go.formatTool": "goimports",
+  "go.lintTool": "staticcheck",
+  "go.toolsManagement.autoUpdate": true,
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "golang.go",
+    "editor.insertSpaces": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false
+  },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go.sum]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+
+  // typescript
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[typescript]": {}
 }

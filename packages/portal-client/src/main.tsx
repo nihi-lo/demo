@@ -2,17 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 
-import { App as PortalApp } from "./App";
-import { Providers } from "./Providers";
+import { PortalClientProviders } from "@portal-client/components/functional/PortalClientProviders";
 
-import "./index.css";
+import { App as PortalApp } from "./App";
+
+import "./styles/index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <HashRouter basename={"/"}>
-      <Providers>
+      <PortalClientProviders>
         <PortalApp />
-      </Providers>
+      </PortalClientProviders>
     </HashRouter>
   </React.StrictMode>,
 );

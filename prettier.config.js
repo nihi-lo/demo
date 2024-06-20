@@ -2,6 +2,7 @@
 const config = {
   plugins: ["prettier-plugin-tailwindcss"],
   tailwindFunctions: ["tv"],
+  endOfLine: "lf",
   printWidth: 100,
 };
 
