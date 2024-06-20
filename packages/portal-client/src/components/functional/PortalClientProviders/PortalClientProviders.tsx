@@ -14,7 +14,7 @@ const PortalClientProviders = ({ children }: PortalClientProvidersProps): JSX.El
   return (
     <PortalCoreProvider>
       <NextUIProvider navigate={navigate}>
-        <ThemeProvider attribute="class" defaultTheme="system">
+        <ThemeProvider attribute="class" defaultTheme="system" storageKey="portal-client.theme">
           {children}
         </ThemeProvider>
       </NextUIProvider>
