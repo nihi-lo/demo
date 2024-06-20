@@ -23,8 +23,8 @@ type NextAuthSession struct {
 	Expires string `json:"expires"`
 }
 
-//go:embed response.html
-var responseHtml []byte
+//go:embed auth.html
+var authHtml []byte
 
 type Core struct {
 	ctx context.Context
@@ -79,27 +79,25 @@ func (c *Core) SignIn() {
 	}
 	defer conn.Close()
 
+	// レスポンスを送信
+	response := "HTTP/1.1 200 OK\r\n" +
+		"Content-Type: text/html\r\n" +
+		"Connection: close\r\n" +
+		"\r\n" +
+		string(authHtml)
+	_, err = conn.Write([]byte(response))
+	if err != nil {
+		return
+	}
+
 	// リクエストを読み取る
 	buffer := make([]byte, 1024)
 	n, err := conn.Read(buffer)
 	if err != nil {
 		return
 	}
-
-	// リクエスト内容を出力
 	requestContent := string(buffer[:n])
 	fmt.Println("Received request:", requestContent)
-
-	// レスポンスを送信
-	response := "HTTP/1.1 200 OK\r\n" +
-		"Content-Type: text/html\r\n" +
-		"Connection: close\r\n" +
-		"\r\n" +
-		string(responseHtml)
-	_, err = conn.Write([]byte(response))
-	if err != nil {
-		return
-	}
 
 	sessionToken := ""
 	session, err := c.getSession(sessionToken)
