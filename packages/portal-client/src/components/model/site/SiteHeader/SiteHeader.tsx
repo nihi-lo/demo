@@ -2,7 +2,7 @@ import { useWindow } from "@portal-core/hooks";
 import { HStack } from "@portal-core/ui";
 
 import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
-import { APP_ID_NOTFOUND, subApps } from "@portal-client/subApps";
+import { APP_ID_NOTFOUND, subApps } from "@portal-client/subapp";
 
 import {
   type SiteHeaderVariantProps as VariantProps,

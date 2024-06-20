@@ -21,7 +21,7 @@ import { SubAppOverlaySelectMenuItem } from "@portal-client/components/model/sub
 import { SubAppSortableSelectMenuItem } from "@portal-client/components/model/subapp/SubAppSortableSelectMenuItem";
 import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
 import { useFavoriteAppOrderStore } from "@portal-client/stores/useFavoriteAppOrderStore";
-import { APP_ID_HOME, APP_ID_OTHER } from "@portal-client/subApps";
+import { APP_ID_HOME, APP_ID_OTHER } from "@portal-client/subapp";
 
 const SiteSideBar = (): JSX.Element => {
   const activeApp = useActiveAppStore((state) => state.activeApp);

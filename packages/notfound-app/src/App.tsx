@@ -4,7 +4,7 @@ import { TbAlertTriangleFilled } from "react-icons/tb";
 import { type Metadata } from "@portal-core/types";
 import { HStack, VStack } from "@portal-core/ui";
 
-import { APP_ID_HOME } from "@portal-client/subApps";
+import { APP_ID_HOME } from "@portal-client/subapp";
 
 const metadata: Metadata = {
   title: "不明なアプリ",

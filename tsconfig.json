@@ -33,6 +33,7 @@
       "@portal-core/types": ["./packages/portal-core/src/types/index"],
       "@portal-core/ui": ["./packages/portal-core/src/components/index"],
       "@portal-client/*": ["./packages/portal-client/src/*"],
+      "@portal-client/subapp": ["./app"],
 
       /* サブアプリパッケージ */
       "@sub-app/about-app/*": ["./packages/about-app/src/*"],

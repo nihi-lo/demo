@@ -9,10 +9,7 @@ import { SiteBody } from "@portal-client/components/model/site/SiteBody";
 import { SiteHeader } from "@portal-client/components/model/site/SiteHeader";
 import { SiteSideBar } from "@portal-client/components/model/site/SiteSideBar";
 import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
-import { subApps } from "@portal-client/subApps";
-
-import { App as HomeApp } from "@sub-app/home-app/App";
-import { App as NotFoundApp } from "@sub-app/notfound-app/App";
+import { APP_ID_HOME, APP_ID_NOTFOUND, subApps } from "@portal-client/subapp";
 
 const variants = tv({
   slots: {
@@ -54,6 +51,9 @@ const App = (): JSX.Element => {
     hideWindowBorder: os === "macos" || isMaximised,
   });
 
+  const homeApp = subApps.get(APP_ID_HOME);
+  const notFoundApp = subApps.get(APP_ID_NOTFOUND);
+
   return (
     <VStack className={base()}>
       <SiteHeader />
@@ -63,7 +63,7 @@ const App = (): JSX.Element => {
         </HStack>
         <SiteBody>
           <Routes>
-            <Route path="/" element={<HomeApp />} />
+            <Route path="/" element={homeApp?.Page()} />
             {(() => {
               const elements: JSX.Element[] = [];
               subApps.forEach((app, key) => {
@@ -71,7 +71,7 @@ const App = (): JSX.Element => {
               });
               return elements;
             })()}
-            <Route path="*" element={<NotFoundApp />} />
+            <Route path="*" element={notFoundApp?.Page()} />
           </Routes>
         </SiteBody>
       </HStack>
