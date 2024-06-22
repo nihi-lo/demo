@@ -1,7 +1,7 @@
 import { useWindow } from "@portal-core/hooks";
 import { HStack } from "@portal-core/ui";
 
-import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
+import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
 import { APP_ID_NOTFOUND, subApps } from "@portal-client/subapp";
 
 import {
@@ -15,13 +15,13 @@ type SiteHeaderProps = VariantProps & {
 
 const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps): JSX.Element => {
   /* Custom hooks */
-  const activeApp = useActiveAppStore((state) => state.activeApp);
+  const activeAppId = useActiveAppIdStore((state) => state.activeAppId);
   const { windowToggleMaximise } = useWindow();
 
   /* ClassName variants */
   const { base } = variants({ isSticky, isGlass, className });
 
-  const app = subApps.get(activeApp) ?? subApps.get(APP_ID_NOTFOUND);
+  const app = subApps.get(activeAppId) ?? subApps.get(APP_ID_NOTFOUND);
 
   return (
     <header

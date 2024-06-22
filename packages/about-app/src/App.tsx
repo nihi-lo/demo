@@ -4,6 +4,7 @@ import { type Metadata } from "@portal-core/types";
 import { HStack, VStack, Section } from "@portal-core/ui";
 
 const metadata: Metadata = {
+  id: "cba33044-b71f-aebe-03bd-317228109543",
   title: "ポータルアプリについて",
   description: "",
   AppIcon: () => (

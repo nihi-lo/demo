@@ -8,7 +8,7 @@ import { VStack, HStack } from "@portal-core/ui";
 import { SiteBody } from "@portal-client/components/model/site/SiteBody";
 import { SiteHeader } from "@portal-client/components/model/site/SiteHeader";
 import { SiteSideBar } from "@portal-client/components/model/site/SiteSideBar";
-import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
+import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
 import { APP_ID_HOME, APP_ID_NOTFOUND, subApps } from "@portal-client/subapp";
 
 const variants = tv({
@@ -29,7 +29,7 @@ const variants = tv({
 
 const App = (): JSX.Element => {
   /* Global Stores */
-  const setActiveApp = useActiveAppStore((state) => state.setActiveApp);
+  const setActiveAppId = useActiveAppIdStore((state) => state.setActiveAppId);
 
   /* React hooks */
   const { isMaximised } = useWindow();
@@ -41,7 +41,7 @@ const App = (): JSX.Element => {
     if (match !== null) {
       const { path } = match.params;
       if (path !== undefined) {
-        setActiveApp(path);
+        setActiveAppId(path);
       }
     }
   });

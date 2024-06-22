@@ -15,7 +15,7 @@ interface FavoriteAppOrderAction {
 const useFavoriteAppOrderStore = create<FavoriteAppOrderState & FavoriteAppOrderAction>()(
   persist(
     immer((set) => ({
-      favoriteApps: [100, 101],
+      favoriteApps: ["cba33044-b71f-aebe-03bd-317228109543"],
       setFavoriteApps: (by) => set((state) => void (state.favoriteApps = by)),
     })),
     { name: "portal-client.favorite-app-order" },

@@ -7,6 +7,7 @@ import { HStack, VStack } from "@portal-core/ui";
 import { APP_ID_HOME } from "@portal-client/subapp";
 
 const metadata: Metadata = {
+  id: "1891b219-a8ef-3c9a-1b0a-c0bad1fad2e9",
   title: "不明なアプリ",
   description: "",
   AppIcon: () => (

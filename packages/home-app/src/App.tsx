@@ -7,6 +7,7 @@ import { Container, HStack, VStack, Section } from "@portal-core/ui";
 import { useApp } from "./App.hooks";
 
 const metadata: Metadata = {
+  id: "9758b097-c421-e215-1892-b9faf92fda64",
   title: "ホーム",
   description: "",
   AppIcon: () => (

@@ -1,3 +1,3 @@
-type SubAppID = number;
+type SubAppID = string;
 
 export { type SubAppID };

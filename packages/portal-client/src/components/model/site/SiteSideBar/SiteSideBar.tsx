@@ -19,12 +19,12 @@ import { AccountSignInButton } from "@portal-client/components/model/account/Acc
 import { SiteManagementButton } from "@portal-client/components/model/site/SiteManagementButton";
 import { SubAppOverlaySelectMenuItem } from "@portal-client/components/model/subapp/SubAppOverlaySelectMenuItem";
 import { SubAppSortableSelectMenuItem } from "@portal-client/components/model/subapp/SubAppSortableSelectMenuItem";
-import { useActiveAppStore } from "@portal-client/stores/useActiveAppStore";
+import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
 import { useFavoriteAppOrderStore } from "@portal-client/stores/useFavoriteAppOrderStore";
 import { APP_ID_HOME, APP_ID_OTHER } from "@portal-client/subapp";
 
 const SiteSideBar = (): JSX.Element => {
-  const activeApp = useActiveAppStore((state) => state.activeApp);
+  const activeAppId = useActiveAppIdStore((state) => state.activeAppId);
   const favoriteApps = useFavoriteAppOrderStore((state) => state.favoriteApps);
   const setFavoriteApps = useFavoriteAppOrderStore((state) => state.setFavoriteApps);
 
@@ -55,7 +55,7 @@ const SiteSideBar = (): JSX.Element => {
       <VStack align="center" py="sm" gap="sm">
         {/* ホームアプリ */}
         <SubAppSortableSelectMenuItem
-          isSelected={activeApp === APP_ID_HOME}
+          isSelected={activeAppId === APP_ID_HOME}
           subAppID={APP_ID_HOME}
         />
         <Divider className="w-4/5" />
@@ -68,8 +68,12 @@ const SiteSideBar = (): JSX.Element => {
           onDragEnd={handleDragEnd}
         >
           <SortableContext items={favoriteApps} strategy={verticalListSortingStrategy}>
-            {favoriteApps.map((id) => (
-              <SubAppSortableSelectMenuItem key={id} isSelected={activeApp === id} subAppID={id} />
+            {favoriteApps.map((appId) => (
+              <SubAppSortableSelectMenuItem
+                key={appId}
+                isSelected={activeAppId === appId}
+                subAppID={appId}
+              />
             ))}
           </SortableContext>
           <DragOverlay>
@@ -80,7 +84,7 @@ const SiteSideBar = (): JSX.Element => {
         {/* その他のアプリ */}
         <Divider className="w-4/5" />
         <SubAppSortableSelectMenuItem
-          isSelected={activeApp === APP_ID_OTHER}
+          isSelected={activeAppId === APP_ID_OTHER}
           subAppID={APP_ID_OTHER}
         />
       </VStack>
