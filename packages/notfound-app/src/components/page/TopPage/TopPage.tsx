@@ -12,7 +12,7 @@ const TopPage = (): JSX.Element => {
         <TbAlertTriangleFilled className="size-12 text-warning" />
         <p className="text-2xl">不明なアプリ</p>
       </HStack>
-      <Link href={`/${APP_ID_HOME}`} underline="always">
+      <Link href={`/apps/${APP_ID_HOME}`} underline="always">
         ホームへ戻る
       </Link>
     </VStack>

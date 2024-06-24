@@ -34,12 +34,12 @@ const App = (): JSX.Element => {
   /* React hooks */
   const { isMaximised } = useWindow();
   const { os } = useOS();
-  const match = useMatch("/:path");
+  const appMatch = useMatch("/apps/:path");
 
   useEffect(() => {
     // これから起動するアプリを ActiveApp に設定する
-    if (match !== null) {
-      const { path } = match.params;
+    if (appMatch !== null) {
+      const { path } = appMatch.params;
       if (path !== undefined) {
         setActiveAppId(path);
       }
@@ -67,7 +67,7 @@ const App = (): JSX.Element => {
             {(() => {
               const elements: JSX.Element[] = [];
               subApps.forEach((app, key) => {
-                elements.push(<Route key={key} path={`/${key}/*`} element={<app.Page />} />);
+                elements.push(<Route key={key} path={`/apps/${key}/*`} element={<app.Page />} />);
               });
               return elements;
             })()}

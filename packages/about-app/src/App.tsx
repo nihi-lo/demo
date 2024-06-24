@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { type Metadata } from "@portal-core/types";
 import { HStack } from "@portal-core/ui";
 
+import { AboutPage } from "@sub-app/about-app/components/page/AboutPage";
 import { TopPage } from "@sub-app/about-app/components/page/TopPage";
 
 const metadata: Metadata = {
@@ -21,6 +22,7 @@ const App = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<TopPage />} />
+      <Route path="/about" element={<AboutPage />} />
     </Routes>
   );
 };
