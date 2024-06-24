@@ -5,7 +5,6 @@ import (
 
 	aboutapp "changeme/packages/about-app/backend"
 	homeapp "changeme/packages/home-app/backend"
-	notfoundapp "changeme/packages/notfound-app/backend"
 	otherappsapp "changeme/packages/otherapps-app/backend"
 	portalclient "changeme/packages/portal-client/backend"
 	portalcore "changeme/packages/portal-core/backend"
@@ -29,7 +28,6 @@ func NewApp() *App {
 			/* サブアプリパッケージ */
 			aboutapp.NewApp(),
 			homeapp.NewApp(),
-			notfoundapp.NewApp(),
 			otherappsapp.NewApp(),
 		},
 	}

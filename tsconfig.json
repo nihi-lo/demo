@@ -38,7 +38,6 @@
       /* サブアプリパッケージ */
       "@sub-app/about-app/*": ["./packages/about-app/src/*"],
       "@sub-app/home-app/*": ["./packages/home-app/src/*"],
-      "@sub-app/notfound-app/*": ["./packages/notfound-app/src/*"],
       "@sub-app/otherapps-app/*": ["./packages/otherapps-app/src/*"]
     }
   },
