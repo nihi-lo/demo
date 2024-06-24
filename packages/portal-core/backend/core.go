@@ -54,6 +54,8 @@ func (c *Core) GetOS() string {
 }
 
 func (c *Core) SignIn() {
+	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "loading")
+
 	// ブラウザで認証ページを開く
 	wailsruntime.BrowserOpenURL(c.ctx, "http://localhost:3000/api/auth/signin")
 
@@ -119,16 +121,23 @@ func (c *Core) SignIn() {
 	}
 
 	// 取得したセッション情報をクライアントへ通知
-	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session)
+	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session, "authenticated")
 }
 
 func (c *Core) UpdateSession() {
+	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "loading")
+
+	if c.sessionToken == "" {
+		wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "unauthenticated")
+		return
+	}
+
 	session, err := c.getSession(c.sessionToken)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session)
+	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session, "authenticated")
 }
 
 func (c *Core) getSession(sessionToken string) (NextAuthSession, error) {

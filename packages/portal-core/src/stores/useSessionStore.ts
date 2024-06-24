@@ -9,17 +9,29 @@ interface SessionState {
 }
 
 interface SessionAction {
-  updateSession: (session: Session) => void;
+  updateSession: (session: Session, status: SessionStatus) => void;
 }
 
 const useSessionStore = create<SessionState & SessionAction>()(
   immer((set) => ({
     session: null,
     status: "unauthenticated",
-    updateSession: (session) =>
+    updateSession: (session, status) =>
       set((state) => {
-        state.session = session?.user.name === "" ? null : session;
-        state.status = session?.user.name === "" ? "unauthenticated" : "authenticated";
+        console.log(session, status);
+
+        switch (status) {
+          case "loading":
+            state.session = undefined;
+            break;
+          case "unauthenticated":
+            state.session = null;
+            break;
+          case "authenticated":
+            state.session = session;
+            break;
+        }
+        state.status = status;
       }),
   })),
 );
