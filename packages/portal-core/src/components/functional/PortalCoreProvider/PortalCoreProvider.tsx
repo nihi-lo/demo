@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+import { UpdateSession } from "@wailsjs/go/portalcore/Core";
 import { EventsOn } from "@wailsjs/runtime/runtime";
 
 import { useSessionStore } from "@portal-core/stores";
@@ -15,7 +16,7 @@ const PortalCoreProvider = ({ children }: PortalCoreProviderProps): JSX.Element 
     EventsOn("portal-core.onSessionTokenUpdate", updateSession);
   }, [updateSession]);
 
-  console.log("updateSession");
+  void UpdateSession();
 
   return <>{children}</>;
 };

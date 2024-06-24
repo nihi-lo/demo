@@ -123,6 +123,15 @@ func (c *Core) SignIn() {
 	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session)
 }
 
+func (c *Core) UpdateSession() {
+	session, err := c.getSession(c.sessionToken)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session)
+}
+
 func (c *Core) getSession(sessionToken string) (NextAuthSession, error) {
 	var session NextAuthSession
 

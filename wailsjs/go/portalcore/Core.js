@@ -13,3 +13,7 @@ export function SetContext(arg1) {
 export function SignIn() {
   return window['go']['portalcore']['Core']['SignIn']();
 }
+
+export function UpdateSession() {
+  return window['go']['portalcore']['Core']['UpdateSession']();
+}

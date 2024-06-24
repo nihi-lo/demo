@@ -8,13 +8,14 @@ interface SessionState {
 }
 
 interface SessionAction {
-  updateSession: (session: Session) => void;
+  updateSession: (session: Session | null) => void;
 }
 
 const useSessionStore = create<SessionState & SessionAction>()(
   immer((set) => ({
     session: null,
-    updateSession: (session) => set((state) => void (state.session = session)),
+    updateSession: (session) =>
+      set((state) => void (state.session = session?.user.name === "" ? null : session)),
   })),
 );
 

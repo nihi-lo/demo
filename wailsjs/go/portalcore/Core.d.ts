@@ -7,3 +7,5 @@ export function GetOS():Promise<string>;
 export function SetContext(arg1:context.Context):Promise<void>;
 
 export function SignIn():Promise<void>;
+
+export function UpdateSession():Promise<void>;
