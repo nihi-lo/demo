@@ -71,7 +71,7 @@ const App = (): JSX.Element => {
               });
               return elements;
             })()}
-            <Route path="*" element={notFoundApp?.Page()} />
+            <Route path="/*" element={notFoundApp?.Page()} />
           </Routes>
         </SiteBody>
       </HStack>

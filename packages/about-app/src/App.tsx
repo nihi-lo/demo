@@ -1,7 +1,10 @@
 import { TbMeat } from "react-icons/tb";
+import { Routes, Route } from "react-router-dom";
 
 import { type Metadata } from "@portal-core/types";
-import { HStack, VStack, Section } from "@portal-core/ui";
+import { HStack } from "@portal-core/ui";
+
+import { TopPage } from "@sub-app/about-app/components/page/TopPage";
 
 const metadata: Metadata = {
   id: "cba33044-b71f-aebe-03bd-317228109543",
@@ -16,9 +19,9 @@ const metadata: Metadata = {
 
 const App = (): JSX.Element => {
   return (
-    <VStack as="main">
-      <Section headingAs="h1" title="This is AboutPage."></Section>
-    </VStack>
+    <Routes>
+      <Route path="/" element={<TopPage />} />
+    </Routes>
   );
 };
 

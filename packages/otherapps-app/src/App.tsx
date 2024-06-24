@@ -1,7 +1,10 @@
 import { TbLayoutGrid } from "react-icons/tb";
+import { Routes, Route } from "react-router-dom";
 
 import { type Metadata } from "@portal-core/types";
-import { Container, HStack, VStack, Section } from "@portal-core/ui";
+import { HStack } from "@portal-core/ui";
+
+import { TopPage } from "@sub-app/otherapps-app/components/page/TopPage";
 
 const metadata: Metadata = {
   id: "6c19d3a4-17e8-b438-a07f-0e74a65b3f2d",
@@ -16,11 +19,9 @@ const metadata: Metadata = {
 
 const App = (): JSX.Element => {
   return (
-    <VStack as="main">
-      <Container>
-        <Section headingAs="h1" title="その他のアプリ"></Section>
-      </Container>
-    </VStack>
+    <Routes>
+      <Route path="/" element={<TopPage />} />
+    </Routes>
   );
 };
 

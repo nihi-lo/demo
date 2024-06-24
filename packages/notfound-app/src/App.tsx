@@ -1,10 +1,10 @@
-import { Link } from "@nextui-org/react";
 import { TbAlertTriangleFilled } from "react-icons/tb";
+import { Routes, Route } from "react-router-dom";
 
 import { type Metadata } from "@portal-core/types";
-import { HStack, VStack } from "@portal-core/ui";
+import { HStack } from "@portal-core/ui";
 
-import { APP_ID_HOME } from "@portal-client/subapp";
+import { TopPage } from "@sub-app/notfound-app/components/page/TopPage";
 
 const metadata: Metadata = {
   id: "1891b219-a8ef-3c9a-1b0a-c0bad1fad2e9",
@@ -19,15 +19,9 @@ const metadata: Metadata = {
 
 const App = (): JSX.Element => {
   return (
-    <VStack as="main" align="center" justify="center" gap="md" className="h-full">
-      <HStack align="center" gap="sm">
-        <TbAlertTriangleFilled className="size-12 text-warning" />
-        <p className="text-2xl">不明なアプリ</p>
-      </HStack>
-      <Link href={`/${APP_ID_HOME}`} underline="always">
-        ホームへ戻る
-      </Link>
-    </VStack>
+    <Routes>
+      <Route path="/*" element={<TopPage />} />
+    </Routes>
   );
 };
 
