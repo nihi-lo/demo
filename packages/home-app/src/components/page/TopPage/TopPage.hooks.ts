@@ -4,14 +4,15 @@ import { Greet } from "@wailsjs/go/homeapp/App";
 
 import { useUserStore } from "@sub-app/home-app/stores/useUserStore";
 
-interface AppHooks {
+interface TopPageHooks {
   inputName: string;
   resultText: string | undefined;
+
   handleGreetClick: () => void;
   handleInputChange: (newValue: string) => void;
 }
 
-const useApp = (): AppHooks => {
+const useTopPage = (): TopPageHooks => {
   /* React hooks */
   const { name, updateName } = useUserStore();
   const [resultText, setResultText] = useState<string>();
@@ -27,9 +28,10 @@ const useApp = (): AppHooks => {
   return {
     inputName: name,
     resultText,
+
     handleGreetClick: useCallback(handleGreetClick, [name]),
     handleInputChange: useCallback(handleInputChange, [updateName]),
   };
 };
 
-export { type AppHooks, useApp };
+export { type TopPageHooks, useTopPage };
