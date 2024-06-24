@@ -1,21 +1,26 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-import { type Session } from "@portal-core/types";
+import { type SessionStatus, type Session } from "@portal-core/types";
 
 interface SessionState {
-  session: Session | null;
+  session: Session | undefined | null;
+  status: SessionStatus;
 }
 
 interface SessionAction {
-  updateSession: (session: Session | null) => void;
+  updateSession: (session: Session) => void;
 }
 
 const useSessionStore = create<SessionState & SessionAction>()(
   immer((set) => ({
     session: null,
+    status: "unauthenticated",
     updateSession: (session) =>
-      set((state) => void (state.session = session?.user.name === "" ? null : session)),
+      set((state) => {
+        state.session = session?.user.name === "" ? null : session;
+        state.status = session?.user.name === "" ? "unauthenticated" : "authenticated";
+      }),
   })),
 );
 

@@ -6,4 +6,6 @@ interface Session {
   };
 }
 
-export { type Session };
+type SessionStatus = "loading" | "authenticated" | "unauthenticated";
+
+export { type Session, type SessionStatus };

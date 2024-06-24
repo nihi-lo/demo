@@ -1,11 +1,10 @@
 import { Button, Image, Tooltip } from "@nextui-org/react";
 import { TbUserSquareRounded } from "react-icons/tb";
 
-import { useAuth } from "@portal-core/hooks";
-import { useSessionStore } from "@portal-core/stores";
+import { useAuth, useSession } from "@portal-core/hooks";
 
 const AccountSignInButton = (): JSX.Element => {
-  const session = useSessionStore((state) => state.session);
+  const { data: session } = useSession();
   const { signIn } = useAuth();
 
   return (
