@@ -67,6 +67,7 @@ func (c *Core) SignIn() {
 	// リスナーを作成
 	listener, err := net.Listen("tcp", "localhost:8080")
 	if err != nil {
+		wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "unauthenticated")
 		return
 	}
 	defer listener.Close()
@@ -79,6 +80,7 @@ func (c *Core) SignIn() {
 	// 認証サーバーからのコールバックを待つ
 	conn, err := listener.Accept()
 	if err != nil {
+		wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "unauthenticated")
 		return
 	}
 	defer conn.Close()
@@ -91,6 +93,7 @@ func (c *Core) SignIn() {
 		string(authHtml)
 	_, err = conn.Write([]byte(response))
 	if err != nil {
+		wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "unauthenticated")
 		return
 	}
 
@@ -98,6 +101,7 @@ func (c *Core) SignIn() {
 	buffer := make([]byte, 1024)
 	n, err := conn.Read(buffer)
 	if err != nil {
+		wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "unauthenticated")
 		return
 	}
 
@@ -117,7 +121,8 @@ func (c *Core) SignIn() {
 	// セッショントークンからセッション情報を取得
 	session, err := c.getSession(c.sessionToken)
 	if err != nil {
-		fmt.Println(err)
+		wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "unauthenticated")
+		return
 	}
 
 	// 取得したセッション情報をクライアントへ通知
@@ -134,7 +139,8 @@ func (c *Core) UpdateSession() {
 
 	session, err := c.getSession(c.sessionToken)
 	if err != nil {
-		fmt.Println(err)
+		wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", nil, "unauthenticated")
+		return
 	}
 
 	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session, "authenticated")

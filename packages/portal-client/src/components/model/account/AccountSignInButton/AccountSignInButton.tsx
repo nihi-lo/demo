@@ -4,7 +4,7 @@ import { TbUserSquareRounded } from "react-icons/tb";
 import { useAuth, useSession } from "@portal-core/hooks";
 
 const AccountSignInButton = (): JSX.Element => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const { signIn } = useAuth();
 
   return (
@@ -14,9 +14,9 @@ const AccountSignInButton = (): JSX.Element => {
       closeDelay={0}
       classNames={{ base: "pointer-events-none select-none" }}
     >
-      {session ? (
+      {status === "authenticated" ? (
         <Button isIconOnly size="lg" variant="light" radius="full">
-          <Image width={48} height={48} src={session.user.image} />
+          <Image width={48} height={48} src={session!.user.image} />
         </Button>
       ) : (
         <Button isIconOnly size="lg" variant="light" onClick={signIn}>

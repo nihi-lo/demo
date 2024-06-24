@@ -18,8 +18,6 @@ const useSessionStore = create<SessionState & SessionAction>()(
     status: "unauthenticated",
     updateSession: (session, status) =>
       set((state) => {
-        console.log(session, status);
-
         switch (status) {
           case "loading":
             state.session = undefined;
