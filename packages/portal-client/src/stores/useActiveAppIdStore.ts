@@ -6,11 +6,11 @@ import { type SubAppID } from "@portal-core/types";
 import { APP_ID_HOME } from "@portal-client/subapp";
 
 interface ActiveAppIdState {
-  activeAppId: SubAppID;
+  activeAppId: SubAppID | null;
 }
 
 interface ActiveAppIdAction {
-  setActiveAppId: (appId: string) => void;
+  setActiveAppId: (appId: SubAppID | null) => void;
 }
 
 const useActiveAppIdStore = create<ActiveAppIdState & ActiveAppIdAction>()(

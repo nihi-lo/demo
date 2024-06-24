@@ -8,8 +8,9 @@ import { VStack, HStack } from "@portal-core/ui";
 import { SiteBody } from "@portal-client/components/model/site/SiteBody";
 import { SiteHeader } from "@portal-client/components/model/site/SiteHeader";
 import { SiteSideBar } from "@portal-client/components/model/site/SiteSideBar";
+import { NotFoundPage } from "@portal-client/components/page/NotFoundPage";
 import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
-import { APP_ID_HOME, APP_ID_NOTFOUND, subApps } from "@portal-client/subapp";
+import { APP_ID_HOME, subApps } from "@portal-client/subapp";
 
 const variants = tv({
   slots: {
@@ -35,19 +36,16 @@ const App = (): JSX.Element => {
   const { isMaximised } = useWindow();
   const { os } = useOS();
   const topMatch = useMatch("/");
-  const appsMatch = useMatch("/apps/:path/*");
+  const appsMatch = useMatch("/apps/:appId/*");
 
   useEffect(() => {
-    // これから起動するアプリを ActiveApp に設定する
-    if (topMatch !== null) {
+    // 現在のURLから起動アプリを判別し、 ActiveAppId に設定する
+    if (topMatch) {
       setActiveAppId(APP_ID_HOME);
-    } else if (appsMatch !== null) {
-      const { path } = appsMatch.params;
-      if (path !== undefined) {
-        setActiveAppId(path);
-      }
+    } else if (appsMatch) {
+      setActiveAppId(appsMatch.params.appId!);
     } else {
-      setActiveAppId(APP_ID_NOTFOUND);
+      setActiveAppId(null);
     }
   });
 
@@ -57,7 +55,6 @@ const App = (): JSX.Element => {
   });
 
   const homeApp = subApps.get(APP_ID_HOME);
-  const notFoundApp = subApps.get(APP_ID_NOTFOUND);
 
   return (
     <VStack className={base()}>
@@ -76,7 +73,7 @@ const App = (): JSX.Element => {
               });
               return elements;
             })()}
-            <Route path="/*" element={notFoundApp!.Page()} />
+            <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </SiteBody>
       </HStack>
