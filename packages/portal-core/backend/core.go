@@ -98,9 +98,8 @@ func (c *Core) SignIn() {
 	if err != nil {
 		return
 	}
-	requestContent := string(buffer[:n])
 
-	headers := strings.Split(requestContent, "\r\n")
+	headers := strings.Split(string(buffer[:n]), "\r\n")
 	for _, header := range headers {
 		if strings.HasPrefix(header, "Cookie:") {
 			cookies := strings.Split(header[len("Cookie: "):], "; ")
