@@ -21,7 +21,7 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
   /* ClassName variants */
   const { base } = variants({ isSticky, isGlass, className });
 
-  const app = subApps.get(activeAppId);
+  const app = activeAppId ? subApps.get(activeAppId) : undefined;
 
   return (
     <header
