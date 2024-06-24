@@ -9,6 +9,7 @@ import (
 	"net"
 	"net/http"
 	"runtime"
+	"strings"
 
 	wailsruntime "github.com/wailsapp/wails/v2/pkg/runtime"
 )
@@ -30,6 +31,7 @@ type Core struct {
 	ctx context.Context
 
 	authListener *net.Listener /* 認証プロセスリスナー */
+	sessionToken string
 }
 
 func NewCore() *Core {
@@ -90,22 +92,34 @@ func (c *Core) SignIn() {
 		return
 	}
 
-	// リクエストを読み取る
+	// リクエストからセッショントークンを取得
 	buffer := make([]byte, 1024)
 	n, err := conn.Read(buffer)
 	if err != nil {
 		return
 	}
 	requestContent := string(buffer[:n])
-	fmt.Println("Received request:", requestContent)
 
-	sessionToken := ""
-	session, err := c.getSession(sessionToken)
+	headers := strings.Split(requestContent, "\r\n")
+	for _, header := range headers {
+		if strings.HasPrefix(header, "Cookie:") {
+			cookies := strings.Split(header[len("Cookie: "):], "; ")
+			for _, cookie := range cookies {
+				if strings.HasPrefix(cookie, "next-auth.session-token=") {
+					c.sessionToken = strings.TrimPrefix(cookie, "next-auth.session-token=")
+					break
+				}
+			}
+		}
+	}
+
+	// セッショントークンからセッション情報を取得
+	session, err := c.getSession(c.sessionToken)
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Printf("%+v\n", session)
 
+	// 取得したセッション情報をクライアントへ通知
 	wailsruntime.EventsEmit(c.ctx, "portal-core.onSessionTokenUpdate", session)
 }
 

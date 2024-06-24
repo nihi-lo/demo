@@ -16,7 +16,7 @@ const AccountSignInButton = (): JSX.Element => {
       classNames={{ base: "pointer-events-none select-none" }}
     >
       {session ? (
-        <Button isIconOnly size="lg" variant="light">
+        <Button isIconOnly size="lg" variant="light" radius="full">
           <Image width={48} height={48} src={session.user.image} />
         </Button>
       ) : (

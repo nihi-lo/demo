@@ -15,6 +15,8 @@ const PortalCoreProvider = ({ children }: PortalCoreProviderProps): JSX.Element 
     EventsOn("portal-core.onSessionTokenUpdate", updateSession);
   }, [updateSession]);
 
+  console.log("updateSession");
+
   return <>{children}</>;
 };
 
