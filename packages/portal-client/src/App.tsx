@@ -9,7 +9,7 @@ import { SiteBody } from "@portal-client/components/model/site/SiteBody";
 import { SiteHeader } from "@portal-client/components/model/site/SiteHeader";
 import { SiteSideBar } from "@portal-client/components/model/site/SiteSideBar";
 import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
-import { APP_ID_NOTFOUND, subApps } from "@portal-client/subapp";
+import { APP_ID_HOME, APP_ID_NOTFOUND, subApps } from "@portal-client/subapp";
 
 const variants = tv({
   slots: {
@@ -34,12 +34,15 @@ const App = (): JSX.Element => {
   /* React hooks */
   const { isMaximised } = useWindow();
   const { os } = useOS();
-  const appMatch = useMatch("/apps/:path/*");
+  const topMatch = useMatch("/");
+  const appsMatch = useMatch("/apps/:path/*");
 
   useEffect(() => {
     // これから起動するアプリを ActiveApp に設定する
-    if (appMatch !== null) {
-      const { path } = appMatch.params;
+    if (topMatch !== null) {
+      setActiveAppId(APP_ID_HOME);
+    } else if (appsMatch !== null) {
+      const { path } = appsMatch.params;
       if (path !== undefined) {
         setActiveAppId(path);
       }
@@ -53,6 +56,7 @@ const App = (): JSX.Element => {
     hideWindowBorder: os === "macos" || isMaximised,
   });
 
+  const homeApp = subApps.get(APP_ID_HOME);
   const notFoundApp = subApps.get(APP_ID_NOTFOUND);
 
   return (
@@ -64,6 +68,7 @@ const App = (): JSX.Element => {
         </HStack>
         <SiteBody>
           <Routes>
+            <Route path="/" element={homeApp!.Page()} />
             {(() => {
               const elements: JSX.Element[] = [];
               subApps.forEach((app, key) => {
@@ -71,7 +76,7 @@ const App = (): JSX.Element => {
               });
               return elements;
             })()}
-            <Route path="/*" element={notFoundApp?.Page()} />
+            <Route path="/*" element={notFoundApp!.Page()} />
           </Routes>
         </SiteBody>
       </HStack>
