@@ -42,6 +42,6 @@
 
   // typescript
   "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "[typescript]": {}
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }

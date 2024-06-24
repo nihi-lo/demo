@@ -1,14 +1,18 @@
 import { useCallback, useLayoutEffect, useState } from "react";
 
 import {
+  Quit,
   WindowIsFullscreen,
   WindowIsMaximised,
+  WindowMinimise,
   WindowToggleMaximise,
 } from "@wailsjs/runtime/runtime";
 
 interface useWindowHooks {
   isFullscreen: boolean;
   isMaximised: boolean;
+  windowMinimise: () => void;
+  windowQuit: () => void;
   windowToggleMaximise: () => void;
 }
 
@@ -32,6 +36,12 @@ const useWindow = (): useWindowHooks => {
   }, []);
 
   /* Event handlers */
+  const windowMinimise = () => {
+    WindowMinimise();
+  };
+  const windowQuit = () => {
+    Quit();
+  };
   const windowToggleMaximise = () => {
     WindowToggleMaximise();
   };
@@ -39,6 +49,8 @@ const useWindow = (): useWindowHooks => {
   return {
     isFullscreen,
     isMaximised,
+    windowMinimise: useCallback(windowMinimise, []),
+    windowQuit: useCallback(windowQuit, []),
     windowToggleMaximise: useCallback(windowToggleMaximise, []),
   };
 };

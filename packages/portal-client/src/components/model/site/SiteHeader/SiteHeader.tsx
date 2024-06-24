@@ -1,6 +1,9 @@
-import { useWindow } from "@portal-core/hooks";
+import { TbMeat } from "react-icons/tb";
+
+import { useOS, useWindow } from "@portal-core/hooks";
 import { HStack } from "@portal-core/ui";
 
+import { WindowControlButtonGroup } from "@portal-client/components/model/window/WindowControlButtonGroup";
 import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
 import { subApps } from "@portal-client/subapp";
 
@@ -16,6 +19,7 @@ type SiteHeaderProps = VariantProps & {
 const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps): JSX.Element => {
   /* Custom hooks */
   const activeAppId = useActiveAppIdStore((state) => state.activeAppId);
+  const { os } = useOS();
   const { windowToggleMaximise } = useWindow();
 
   /* ClassName variants */
@@ -31,7 +35,12 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
       {...props}
     >
       <HStack align="center" justify="start" className="absolute left-0 top-0 h-9 w-40">
-        {/* ヘッダー左端のコンテンツ */}
+        {os === "windows" && (
+          <HStack align="center" gap="xs">
+            <TbMeat className="size-6" />
+            <p className="font-semibold">Niku Portal</p>
+          </HStack>
+        )}
       </HStack>
       <HStack align="center" justify="center" px="sm" className="mx-40 h-9">
         {app && (
@@ -41,7 +50,7 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
         )}
       </HStack>
       <HStack align="center" justify="end" className="absolute right-0 top-0 h-9 w-40">
-        {/* ヘッダー右端のコンテンツ */}
+        {os === "windows" && <WindowControlButtonGroup />}
       </HStack>
     </header>
   );
