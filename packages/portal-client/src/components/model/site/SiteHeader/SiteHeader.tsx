@@ -20,7 +20,7 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
   /* Custom hooks */
   const activeAppId = useActiveAppIdStore((state) => state.activeAppId);
   const { os } = useOS();
-  const { windowToggleMaximise } = useWindow();
+  const { windowQuit, windowToggleMaximise } = useWindow();
 
   /* ClassName variants */
   const { base } = variants({ isSticky, isGlass, className });
@@ -36,9 +36,11 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
     >
       <HStack align="center" justify="start" className="absolute left-0 top-0 h-9 w-40">
         {os === "windows" && (
-          <HStack align="center" gap="xs">
-            <TbMeat className="size-6" />
-            <p className="font-semibold">Niku Portal</p>
+          <HStack align="center" px="sm" gap="xs">
+            <div onDoubleClick={windowQuit}>
+              <TbMeat className="size-6" />
+            </div>
+            <p className="text-medium font-semibold text-content2-foreground">Niku Portal</p>
           </HStack>
         )}
       </HStack>

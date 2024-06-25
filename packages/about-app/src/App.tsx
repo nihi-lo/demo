@@ -1,4 +1,3 @@
-import { TbMeat } from "react-icons/tb";
 import { Routes, Route } from "react-router-dom";
 
 import { type Metadata } from "@portal-core/types";
@@ -12,8 +11,8 @@ const metadata: Metadata = {
   title: "ポータルアプリについて",
   description: "",
   AppIcon: () => (
-    <HStack align="center" justify="center" className="size-12 bg-[#e17b34]">
-      <TbMeat className="size-8 text-black" />
+    <HStack align="center" justify="center" className="size-12 bg-content3">
+      <p className="text-lg font-semibold text-content3-foreground">ポ</p>
     </HStack>
   ),
 };
