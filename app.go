@@ -4,6 +4,7 @@ import (
 	"context"
 
 	aboutapp "changeme/packages/about-app/backend"
+	gakusimapp "changeme/packages/gakusim-app/backend"
 	homeapp "changeme/packages/home-app/backend"
 	otherappsapp "changeme/packages/otherapps-app/backend"
 	portalclient "changeme/packages/portal-client/backend"
@@ -27,6 +28,7 @@ func NewApp() *App {
 
 			/* サブアプリパッケージ */
 			aboutapp.NewApp(),
+			gakusimapp.NewApp(),
 			homeapp.NewApp(),
 			otherappsapp.NewApp(),
 		},

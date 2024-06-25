@@ -1,6 +1,7 @@
 import { type SubAppID, type Metadata } from "@portal-core/types";
 
 import { App as AboutApp, metadata as aboutAppMetadata } from "@sub-app/about-app/App";
+import { App as GakusimApp, metadata as gakusimAppMetadata } from "@sub-app/gakusim-app/App";
 import { App as HomeApp, metadata as homeAppMetadata } from "@sub-app/home-app/App";
 import { App as OtherAppsApp, metadata as otherAppsAppMetadata } from "@sub-app/otherapps-app/App";
 
@@ -14,4 +15,5 @@ export const subApps = new Map<SubAppID, { metadata: Metadata; Page: () => JSX.E
 
   /* サブアプリ */
   [aboutAppMetadata.id, { metadata: aboutAppMetadata, Page: AboutApp }],
+  [gakusimAppMetadata.id, { metadata: gakusimAppMetadata, Page: GakusimApp }],
 ]);
