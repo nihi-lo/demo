@@ -8,7 +8,7 @@ import { TopPage } from "@sub-app/gakusim-app/components/page/TopPage";
 
 const metadata: Metadata = {
   id: "6876b3b6-307d-27ca-d845-6577357297c2",
-  title: "学マス - コンテストシミュ",
+  title: "学マス コンテストシミュ",
   description: "",
   AppIcon: () => <Image alt="アプリアイコン" radius="none" src={AppIconImage} width={48} />,
 };

@@ -5,7 +5,7 @@ const TopPage = (): JSX.Element => {
     <VStack as="main">
       <Container>
         <Section headingAs="h1" title="About">
-          <p>このページは、 学マス - コンテストシミュ の TopPage です。</p>
+          <p>このページは、 学マス コンテストシミュ の TopPage です。</p>
         </Section>
       </Container>
     </VStack>
