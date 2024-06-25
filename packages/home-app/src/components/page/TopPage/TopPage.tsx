@@ -5,7 +5,7 @@ import { Container, HStack, VStack, Section } from "@portal-core/ui";
 import { useTopPage } from "./TopPage.hooks";
 
 const TopPage = (): JSX.Element => {
-  const { inputName, resultText, handleGreetClick, handleInputChange } = useTopPage();
+  const hooks = useTopPage();
 
   return (
     <VStack as="main">
@@ -15,12 +15,16 @@ const TopPage = (): JSX.Element => {
             <VStack align="start" justify="center" gap="sm">
               <div>Please enter your name below 👇</div>
               <HStack align="center" justify="center" gap="sm">
-                <Input label="Name" defaultValue={inputName} onValueChange={handleInputChange} />
-                <Button color="primary" onClick={handleGreetClick}>
+                <Input
+                  label="Name"
+                  defaultValue={hooks.inputName}
+                  onValueChange={hooks.handleInputChange}
+                />
+                <Button color="primary" onClick={hooks.handleGreetClick}>
                   Greet
                 </Button>
               </HStack>
-              {resultText && <div>{resultText}</div>}
+              {hooks.resultText && <div>{hooks.resultText}</div>}
             </VStack>
           </Section>
         </VStack>
