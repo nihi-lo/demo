@@ -21,7 +21,7 @@ import { SubAppOverlaySelectMenuItem } from "@portal-client/components/model/sub
 import { SubAppSortableSelectMenuItem } from "@portal-client/components/model/subapp/SubAppSortableSelectMenuItem";
 import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
 import { useFavoriteAppOrderStore } from "@portal-client/stores/useFavoriteAppOrderStore";
-import { APP_ID_HOME, APP_ID_OTHER } from "@portal-client/subapp";
+import { APP_ID_HOME } from "@portal-client/subapp";
 
 const SiteSideBar = (): JSX.Element => {
   const activeAppId = useActiveAppIdStore((state) => state.activeAppId);
@@ -80,13 +80,6 @@ const SiteSideBar = (): JSX.Element => {
             {activeID && <SubAppOverlaySelectMenuItem subAppID={activeID} />}
           </DragOverlay>
         </DndContext>
-
-        {/* その他のアプリ */}
-        <Divider className="w-4/5" />
-        <SubAppSortableSelectMenuItem
-          isSelected={activeAppId === APP_ID_OTHER}
-          subAppID={APP_ID_OTHER}
-        />
       </VStack>
 
       {/* 設定アプリエリア */}
