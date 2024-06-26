@@ -1,4 +1,4 @@
-import { type SubAppID } from "packages/portal-core/src/types/xSubAppID";
+import { type SubAppID } from "packages/portal-core/src/types/subAppID";
 
 interface Metadata {
   id: SubAppID;
