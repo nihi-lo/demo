@@ -23,6 +23,8 @@ func main() {
 		Width:     1024,
 		Height:    768,
 		Frameless: runtime.GOOS == "windows",
+		MinWidth:  640,
+		MinHeight: 480,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},
