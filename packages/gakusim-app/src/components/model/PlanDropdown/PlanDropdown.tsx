@@ -8,7 +8,7 @@ const PlanDropdown = (): JSX.Element => {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button color="primary" size="sm" variant="bordered" className="capitalize">
+        <Button size="sm" variant="bordered" className="capitalize">
           {vm.state.selectedValue}
         </Button>
       </DropdownTrigger>
