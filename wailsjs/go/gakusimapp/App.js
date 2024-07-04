@@ -5,3 +5,7 @@
 export function SetContext(arg1) {
   return window['go']['gakusimapp']['App']['SetContext'](arg1);
 }
+
+export function SimulateContest() {
+  return window['go']['gakusimapp']['App']['SimulateContest']();
+}

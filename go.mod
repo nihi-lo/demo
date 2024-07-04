@@ -1,4 +1,4 @@
-module changeme
+module github.com/nihi-lo/demo
 
 go 1.22.4
 

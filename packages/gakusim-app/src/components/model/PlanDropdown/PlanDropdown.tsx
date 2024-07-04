@@ -3,23 +3,26 @@ import { Dropdown, DropdownTrigger, Button, DropdownMenu, DropdownItem } from "@
 import { usePlanDropdownViewModel } from "./PlanDropdown.hooks";
 
 const PlanDropdown = (): JSX.Element => {
-  const vm = usePlanDropdownViewModel();
+  const {
+    state: { dropdownItemList, selectedKeys, selectedValue },
+    action: { setSelectedKeys },
+  } = usePlanDropdownViewModel();
 
   return (
     <Dropdown>
       <DropdownTrigger>
         <Button size="sm" variant="bordered" className="capitalize">
-          {vm.state.selectedValue}
+          {selectedValue}
         </Button>
       </DropdownTrigger>
       <DropdownMenu
         variant="flat"
         disallowEmptySelection
         selectionMode="single"
-        selectedKeys={vm.state.selectedKeys}
-        onSelectionChange={vm.action.setSelectedKeys}
+        selectedKeys={selectedKeys}
+        onSelectionChange={setSelectedKeys}
       >
-        {vm.state.dropdownItemList.map((item: { key: string; value: string }) => (
+        {dropdownItemList.map((item: { key: string; value: string }) => (
           <DropdownItem key={item.key}>{item.value}</DropdownItem>
         ))}
       </DropdownMenu>

@@ -3,11 +3,11 @@ package main
 import (
 	"context"
 
-	aboutapp "changeme/packages/about-app/backend"
-	gakusimapp "changeme/packages/gakusim-app/backend"
-	homeapp "changeme/packages/home-app/backend"
-	portalclient "changeme/packages/portal-client/backend"
-	portalcore "changeme/packages/portal-core/backend"
+	aboutapp "github.com/nihi-lo/demo/packages/about-app/backend"
+	gakusimapp "github.com/nihi-lo/demo/packages/gakusim-app/backend"
+	homeapp "github.com/nihi-lo/demo/packages/home-app/backend"
+	portalclient "github.com/nihi-lo/demo/packages/portal-client/backend"
+	portalcore "github.com/nihi-lo/demo/packages/portal-core/backend"
 )
 
 type SubApplication interface {

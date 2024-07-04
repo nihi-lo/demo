@@ -1,9 +1,9 @@
 import { Button, Card, CardBody, CardHeader, Divider, Image } from "@nextui-org/react";
-import { TbArrowRight } from "react-icons/tb";
 
 import { Container, HStack, Section, VStack } from "@portal-core/ui";
 
 import { PItems0001, PItems0002, PItems0003 } from "@sub-app/gakusim-app/components/image/PItems";
+import { ContestSimulateButton } from "@sub-app/gakusim-app/components/model/ContestSimulateButton";
 import { PlanDropdown } from "@sub-app/gakusim-app/components/model/PlanDropdown";
 
 const TopPage = (): JSX.Element => {
@@ -169,9 +169,7 @@ const TopPage = (): JSX.Element => {
                 <CardBody></CardBody>
               </Card>
             </HStack>
-            <Button color="primary" size="lg" startContent={<TbArrowRight className="size-8" />}>
-              対戦開始
-            </Button>
+            <ContestSimulateButton />
           </VStack>
         </Section>
         <Section headingAs="h2" title="対戦結果">
