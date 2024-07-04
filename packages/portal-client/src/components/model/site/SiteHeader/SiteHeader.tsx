@@ -1,9 +1,11 @@
+import { Divider } from "@nextui-org/react";
 import { TbMeat } from "react-icons/tb";
 
 import { useOS, useWindow } from "@portal-core/hooks";
 import { HStack } from "@portal-core/ui";
 
 import { WindowControlButtonGroup } from "@portal-client/components/model/window/WindowControlButtonGroup";
+import { WindowNavigationButtonGroup } from "@portal-client/components/model/window/WindowNavigationButtonGroup";
 import { useActiveAppIdStore } from "@portal-client/stores/useActiveAppIdStore";
 import { subApps } from "@portal-client/subapp";
 
@@ -52,7 +54,13 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
         )}
       </HStack>
       <HStack align="center" justify="end" className="absolute right-0 top-0 h-9 w-40">
-        {os === "windows" && <WindowControlButtonGroup />}
+        <WindowNavigationButtonGroup />
+        {os === "windows" && (
+          <>
+            <Divider orientation="vertical" className="mx-1 h-2/3" />
+            <WindowControlButtonGroup />
+          </>
+        )}
       </HStack>
     </header>
   );
