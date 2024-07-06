@@ -19,7 +19,7 @@ const WindowNavigationButtonGroup = (): JSX.Element => {
         radius="none"
         size="sm"
         variant="ghost"
-        className="border-none"
+        className="h-9 border-none"
       >
         <TbChevronLeft className="size-5" />
       </Button>
@@ -31,7 +31,7 @@ const WindowNavigationButtonGroup = (): JSX.Element => {
         radius="none"
         size="sm"
         variant="ghost"
-        className="border-none"
+        className="h-9 border-none"
       >
         <TbChevronRight className="size-5" />
       </Button>

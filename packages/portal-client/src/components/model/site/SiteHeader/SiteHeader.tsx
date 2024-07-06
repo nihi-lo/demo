@@ -30,13 +30,13 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
   const app = activeAppId ? subApps.get(activeAppId) : undefined;
 
   return (
-    <header
-      onDoubleClick={windowToggleMaximise}
-      className={base()}
-      style={{ widows: 1 }}
-      {...props}
-    >
-      <HStack align="center" justify="start" className="absolute left-0 top-0 h-9 w-40">
+    <header className={base()} style={{ widows: 1 }} {...props}>
+      <HStack
+        align="center"
+        justify="start"
+        onDoubleClick={windowToggleMaximise}
+        className="absolute left-0 top-0 h-9 w-40"
+      >
         {os === "windows" && (
           <HStack align="center" px="sm" gap="xs">
             <div onDoubleClick={windowQuit}>
@@ -46,7 +46,13 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
           </HStack>
         )}
       </HStack>
-      <HStack align="center" justify="center" px="sm" className="mx-40 h-9">
+      <HStack
+        align="center"
+        justify="center"
+        onDoubleClick={windowToggleMaximise}
+        px="sm"
+        className="mx-40 h-9"
+      >
         {app && (
           <p className="truncate text-small font-semibold text-content2-foreground">
             {app.metadata.title}
@@ -54,6 +60,7 @@ const SiteHeader = ({ isSticky, isGlass, className, ...props }: SiteHeaderProps)
         )}
       </HStack>
       <HStack align="center" justify="end" className="absolute right-0 top-0 h-9 w-40">
+        <div onDoubleClick={windowToggleMaximise} className="size-full" />
         <WindowNavigationButtonGroup />
         {os === "windows" && (
           <>
