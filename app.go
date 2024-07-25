@@ -3,11 +3,14 @@ package main
 import (
 	"context"
 
+	portalclient "github.com/nihi-lo/demo/packages/portal-client/backend"
+	portalcore "github.com/nihi-lo/demo/packages/portal-core/backend"
+
+	// SUB_APP_IMPORT_START
 	aboutapp "github.com/nihi-lo/demo/packages/about-app/backend"
 	gakusimapp "github.com/nihi-lo/demo/packages/gakusim-app/backend"
 	homeapp "github.com/nihi-lo/demo/packages/home-app/backend"
-	portalclient "github.com/nihi-lo/demo/packages/portal-client/backend"
-	portalcore "github.com/nihi-lo/demo/packages/portal-core/backend"
+	// SUB_APP_IMPORT_END
 )
 
 type SubApplication interface {
@@ -26,9 +29,11 @@ func NewApp() *App {
 			portalclient.NewClient(),
 
 			/* サブアプリパッケージ */
+			// SUB_APP_NEWAPP_START
 			aboutapp.NewApp(),
 			gakusimapp.NewApp(),
 			homeapp.NewApp(),
+			// SUB_APP_NEWAPP_END
 		},
 	}
 }

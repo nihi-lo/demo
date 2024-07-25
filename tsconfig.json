@@ -36,9 +36,11 @@
       "@portal-client/subapp": ["./app"],
 
       /* サブアプリパッケージ */
+      // SUB_APP_PATHS_START
       "@sub-app/about-app/*": ["./packages/about-app/src/*"],
       "@sub-app/gakusim-app/*": ["./packages/gakusim-app/src/*"],
       "@sub-app/home-app/*": ["./packages/home-app/src/*"]
+      // SUB_APP_PATHS_END
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.js"],

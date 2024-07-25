@@ -8,10 +8,13 @@ tasks:
       - npm run format
     silent: true
 
-  # テンプレートからソースコードを生成します
+  # ポータルアプリ に必要な各種ファイル群を生成します
   generate:
     cmds:
-      - npm run generate
+      - go run ./cmd/generate/main.go {{.CLI_ARGS}}
+      - wails generate module
+      - npm install
+      - go fmt .
       - npm run format
     silent: true
 

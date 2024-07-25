@@ -11,6 +11,8 @@ export const subApps = new Map<SubAppID, { metadata: Metadata; Page: () => JSX.E
   [APP_ID_HOME, { metadata: homeAppMetadata, Page: HomeApp }],
 
   /* サブアプリ */
+  // SUB_APP_ENTRY_REGISTRATION_START
   [aboutAppMetadata.id, { metadata: aboutAppMetadata, Page: AboutApp }],
   [gakusimAppMetadata.id, { metadata: gakusimAppMetadata, Page: GakusimApp }],
+  // SUB_APP_REGISTRATION_END
 ]);
